@@ -20,7 +20,7 @@ public class Force : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        force = 2 + Mathf.PingPong(Time.time * 15, 10);
+        force = 2 + Mathf.PingPong(Time.time * 10, 10);
         var force_string = "";
         for (int i=0; i<Mathf.FloorToInt(force); i++)
         {

@@ -3,7 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
+  - Coin
+  - Head
+  - Loose
+  - Win
+  - Sticky
+  - Spawn
+  - Boy
+  - Died
+  - Blocker
+  - PowerButton
+  - GameMusic
+  - Slider1
+  - Panel
+  - Out
+  - Down
   layers:
   - Default
   - TransparentFX
