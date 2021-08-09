@@ -42,7 +42,7 @@ public class Ayrılma : MonoBehaviour
     {
         if (rode == true)
         {
-            if (countBoy == 1)
+            if (countBoy == 2)
             {
                 rb1.velocity = Vector3.left * 1;
                 

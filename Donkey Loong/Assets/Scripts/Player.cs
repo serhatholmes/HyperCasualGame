@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
         {
             lr.positionCount = 0;
             jumpForce = gm.force;
-            rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 1.6f);
+            rb.velocity = Vector3.up * (jumpForce) * 2.5f + transform.forward * ((jumpForce) * 1.7f);
 
             anim1.Play("Floating");
 
