@@ -34,7 +34,7 @@ public class SceneMang : MonoBehaviour
 
     public void Win()
     {
-        
+        AudioManager.instance.Play("clap");
         SceneManager.LoadScene("WinScene");
     }
 

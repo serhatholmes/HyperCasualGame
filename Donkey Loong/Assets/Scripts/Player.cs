@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
 
     public Rigidbody rb;
 
-
     
 
     Spawner spawner;
@@ -107,9 +106,10 @@ public class Player : MonoBehaviour
             jumpForce = gm.force;
             rb.velocity = Vector3.up * (jumpForce) * 2.3f + transform.forward * ((jumpForce) * 1.7f);
 
+            AudioManager.instance.Play("Jump");
             anim1.Play("Floating");
 
-            
+            jumpMe = false;
 
             Debug.Log("animasyona girdi");
         }
@@ -173,6 +173,8 @@ public class Player : MonoBehaviour
             
             anim1.Play("Sitting");
 
+            AudioManager.instance.Play("Sit");
+
             Handheld.Vibrate();
             rb.constraints = RigidbodyConstraints.FreezeAll;
             
@@ -190,7 +192,9 @@ public class Player : MonoBehaviour
             spawner.SpawnJumper();
             
             jumpMe = false;
-            
+
+            AudioManager.instance.Play("Sit");
+
             Debug.Log("yere degdi");
             anim1.Play("Dying");
             rb.constraints = RigidbodyConstraints.FreezeAll;

@@ -34,7 +34,7 @@ public class TouchCounter : MonoBehaviour
     {
         if(countPlayer==5)
         {
-            PanelOpener();
+            //PanelOpener();
             
             SceneManager.LoadScene("WinScene");
         }
@@ -69,12 +69,12 @@ public class TouchCounter : MonoBehaviour
             
     }
 
-    public void PanelOpener()
+    /*public void PanelOpener()
     {
         bool isActive = Panel.activeSelf;
         Panel.SetActive(!isActive);
         Time.timeScale = 0;
     }
-
+    */
 
 }
