@@ -50,7 +50,7 @@ public class CoinTurn : MonoBehaviour
             // destroy the coin
             Destroy(gameObject);
             Debug.Log("coin");
-            currentCoins += 100;
+            currentCoins += 75;
             PlayerPrefs.SetInt("CoinSystem", currentCoins);
             coinDisplayText.SetText(currentCoins.ToString());
             coinDisplayText.text = " " + currentCoins;

@@ -487,7 +487,8 @@ GameObject:
   - component: {fileID: 253347561}
   - component: {fileID: 253347560}
   - component: {fileID: 253347559}
-  m_Layer: 0
+  - component: {fileID: 253347562}
+  m_Layer: 11
   m_Name: Coin (1)
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -503,7 +504,7 @@ Transform:
   m_GameObject: {fileID: 253347557}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -3.2, y: 1.42, z: 2.87}
-  m_LocalScale: {x: 1, y: 0.072731696, z: 1}
+  m_LocalScale: {x: 1.4416639, y: 0.072731696, z: 1.4712478}
   m_Children: []
   m_Father: {fileID: 1453625130}
   m_RootOrder: 15
@@ -569,6 +570,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253347557}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &253347562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253347557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42099b6d0923b4a81ac39f30d1cb4d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 90
+  coinDisplayText: {fileID: 954505725}
+  currentCoins: 0
 --- !u!1 &272030741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +3227,7 @@ GameObject:
   - component: {fileID: 1711898638}
   - component: {fileID: 1711898637}
   - component: {fileID: 1711898640}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -3227,7 +3243,7 @@ Transform:
   m_GameObject: {fileID: 1711898635}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 3.64, y: 1.53, z: 1.16}
-  m_LocalScale: {x: 1, y: 0.072731696, z: 1}
+  m_LocalScale: {x: 1.8129961, y: 0.072731696, z: 1.8488}
   m_Children: []
   m_Father: {fileID: 1453625130}
   m_RootOrder: 14
@@ -3897,16 +3913,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3372903667339241381, guid: b2326c4518b1b4387bf6c973a938358c,
-        type: 3}
-      propertyPath: m_Mass
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3372903667339241381, guid: b2326c4518b1b4387bf6c973a938358c,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2326c4518b1b4387bf6c973a938358c, type: 3}
