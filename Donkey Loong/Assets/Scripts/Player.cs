@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     [SerializeField] public bool jumpMe = false;
 
     private float sinValue = 0f;
-    private float increment = 0.075f;
+    private float increment = 0.072f;
     private bool rotationStopped = false;
     [SerializeField] bool donuyorum = false;
 
