@@ -19,10 +19,10 @@ public class TouchCounter : MonoBehaviour
 
     int milliseconds = 2000;
 
-    
 
-   
+    public ParticleSystem sitParticle;
 
+    public ShakerCamera shaker;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +49,11 @@ public class TouchCounter : MonoBehaviour
     {
         if(other.gameObject.tag=="Boy")
         {
+            StartCoroutine(shaker.Shake(.15f,.4f));
+            if (!sitParticle.isPlaying)
+            {
+                sitParticle.Play();
+            }
             countPlayer++;
             
             Debug.Log("tutundu");

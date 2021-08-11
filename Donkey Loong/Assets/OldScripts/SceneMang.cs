@@ -29,6 +29,7 @@ public class SceneMang : MonoBehaviour
 
     public void GameOver()
     {
+        AudioManager.instance.Play("Nooo");
         SceneManager.LoadScene("GameOver");
     }
 

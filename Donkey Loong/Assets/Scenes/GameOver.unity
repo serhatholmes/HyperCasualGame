@@ -1009,6 +1009,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Theme
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ec06d5804e9a644c685f380dbe8d41c4, type: 3}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Nooo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a9051c97b58f44ef85eda0b31f2666d, type: 3}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: clap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149546145006390069, guid: bed996a0ccc6946e5bdd7578e2780243,
+        type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.76
+      objectReference: {fileID: 0}
     - target: {fileID: 1149546145006390074, guid: bed996a0ccc6946e5bdd7578e2780243,
         type: 3}
       propertyPath: m_Name

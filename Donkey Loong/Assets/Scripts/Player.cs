@@ -24,11 +24,15 @@ public class Player : MonoBehaviour
 
     public Rigidbody rb;
 
-    
+    public bool forFinish = false;
 
     Spawner spawner;
 
     CoinTurn cnTurn;
+
+    GameObject arrow;
+
+    
 
     [SerializeField] public GameObject canvasObject;
 
@@ -67,6 +71,7 @@ public class Player : MonoBehaviour
 
         gm = FindObjectOfType<Force>();
 
+        arrow = GameObject.FindGameObjectWithTag("Arrow");
     }
 
 
@@ -82,10 +87,9 @@ public class Player : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
         }
+
+
     }
-
- 
-
 
     public void touchAndJump()
     {
@@ -100,11 +104,13 @@ public class Player : MonoBehaviour
 
         jumpMe = true;
 
-        if (jumpMe == true)
+        if (jumpMe == true || forFinish == true)
         {
             lr.positionCount = 0;
             jumpForce = gm.force;
-            rb.velocity = Vector3.up * (jumpForce) * 2.3f + transform.forward * ((jumpForce) * 1.7f);
+            rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
+
+            Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
             AudioManager.instance.Play("Jump");
             anim1.Play("Floating");
@@ -121,6 +127,8 @@ public class Player : MonoBehaviour
 
         if(other.tag =="Spawn")
         {
+            arrow.SetActive(false);
+
             transform.DOMoveX(0, 2.5f);
 
             yürüdü = true;
@@ -141,6 +149,10 @@ public class Player : MonoBehaviour
 
         else if (other.tag == "Finish" )
         {
+            arrow.SetActive(true);
+
+            forFinish = true;
+
             Debug.Log("buraya da girdi");
 
             Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
@@ -170,7 +182,9 @@ public class Player : MonoBehaviour
 
         else if(other.tag == "Donkey" )
         {
+
             
+
             anim1.Play("Sitting");
 
             AudioManager.instance.Play("Sit");
@@ -198,7 +212,8 @@ public class Player : MonoBehaviour
             Debug.Log("yere degdi");
             anim1.Play("Dying");
             rb.constraints = RigidbodyConstraints.FreezeAll;
-            
+
+            Destroy(gameObject.GetComponent<CapsuleCollider>());
 
             this.enabled = false;
         }

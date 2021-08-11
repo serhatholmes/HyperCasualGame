@@ -44,7 +44,7 @@ public class Ayrılma : MonoBehaviour
         {
             if (countBoy == 2)
             {
-                rb1.velocity = Vector3.left * 1;
+                rb1.velocity = Vector3.left * 2;
                 
                 StartCoroutine("Waitt");
                 

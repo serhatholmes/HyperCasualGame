@@ -56,9 +56,39 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Theme2
+  - name: Theme
     clip: {fileID: 8300000, guid: 8ad0cd9c5c8184bc09ca6f602665c43c, type: 3}
-    volume: 0.822
+    volume: 0.24
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: Clap
+    clip: {fileID: 8300000, guid: 9a9051c97b58f44ef85eda0b31f2666d, type: 3}
+    volume: 0.644
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: c2f196514afcc41e1a62479798b1e554, type: 3}
+    volume: 0.46
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Button1
+    clip: {fileID: 8300000, guid: 1a77a7be0e13e4eb79b9831bca45b344, type: 3}
+    volume: 0.46
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Button2
+    clip: {fileID: 8300000, guid: a66d281fa45544d05b20291894ffc316, type: 3}
+    volume: 0.46
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Button3
+    clip: {fileID: 8300000, guid: 9eca6b730517743f6beb2c9ea776585f, type: 3}
+    volume: 0.46
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

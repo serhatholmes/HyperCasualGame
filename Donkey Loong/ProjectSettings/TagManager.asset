@@ -21,6 +21,9 @@ TagManager:
   - Out
   - Down
   - Donkey
+  - FxTemporaire
+  - Arrow
+  - Quiver
   layers:
   - Default
   - TransparentFX
