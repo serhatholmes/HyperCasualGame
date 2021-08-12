@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 
-public class Shop : MonoBehaviour
+public class Store : MonoBehaviour
 {
     public SpriteRenderer sr;
     public List<Sprite> skins = new List<Sprite>();
