@@ -26,13 +26,15 @@ public class Player : MonoBehaviour
 
     public bool forFinish = false;
 
+    
+
     Spawner spawner;
 
     CoinTurn cnTurn;
 
     GameObject arrow;
 
-    
+    GameObject quiver;
 
     [SerializeField] public GameObject canvasObject;
 
@@ -72,6 +74,8 @@ public class Player : MonoBehaviour
         gm = FindObjectOfType<Force>();
 
         arrow = GameObject.FindGameObjectWithTag("Arrow");
+
+        quiver = GameObject.FindGameObjectWithTag("Quiver");
     }
 
 
@@ -111,6 +115,7 @@ public class Player : MonoBehaviour
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
+            
 
             AudioManager.instance.Play("Jump");
             anim1.Play("Floating");
@@ -128,6 +133,8 @@ public class Player : MonoBehaviour
         if(other.tag =="Spawn")
         {
             arrow.SetActive(false);
+
+            quiver.SetActive(false);
 
             transform.DOMoveX(0, 2.5f);
 
@@ -150,6 +157,8 @@ public class Player : MonoBehaviour
         else if (other.tag == "Finish" )
         {
             arrow.SetActive(true);
+
+            quiver.SetActive(true);
 
             forFinish = true;
 

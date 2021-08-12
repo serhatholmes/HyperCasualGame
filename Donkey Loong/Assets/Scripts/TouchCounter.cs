@@ -22,6 +22,8 @@ public class TouchCounter : MonoBehaviour
 
     public ParticleSystem sitParticle;
 
+    public ParticleSystem floorParticle;
+
     public ShakerCamera shaker;
     // Start is called before the first frame update
     void Start()
@@ -63,7 +65,16 @@ public class TouchCounter : MonoBehaviour
 
         else if(other.gameObject.tag=="Floor")
         {
+            StartCoroutine(shaker.Shake(.05f, .6f));
+
+            if (!floorParticle.isPlaying)
+            {
+                floorParticle.Play();
+            }
+
             deathCount++;
+
+
             
             Debug.Log("ölüyor");
             
