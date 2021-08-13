@@ -22,7 +22,7 @@ public class OddEvenn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        theNumb.SetActive(false);
+        //theNumb.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,18 +51,41 @@ public class OddEvenn : MonoBehaviour
 
     IEnumerator Waitttt()
     {
-        Debug.Log("girdi");
-        yield return new WaitForSecondsRealtime(1);
-        theNumb.SetActive(true);
+        Debug.Log("basladi");
+        yield return new WaitForSecondsRealtime(2);
+        //theNumb.SetActive(true);
+        theNumb.GetComponent<Text>().text = "" + theNumber;
+        yield return new WaitForSecondsRealtime(2);
+        OddButton();
     }
 
     public void OddButton()
     {
+        if(theNumber % 2 == 1)
+        {
+            StartCoroutine("Waitttt");
+            SceneManager.LoadScene("WinScene");
+        }
 
+        else
+        {
+            StartCoroutine("Waitttt");
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void EvenButton()
     {
+        if(theNumber % 2 == 0)
+        {
+            StartCoroutine("Waitttt");
+            SceneManager.LoadScene("WinScene");
+        }
 
+        else
+        {
+            StartCoroutine("Waitttt");
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }

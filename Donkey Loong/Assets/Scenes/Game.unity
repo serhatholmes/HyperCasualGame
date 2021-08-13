@@ -1503,7 +1503,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 965998483}
-        m_MethodName: Win
+        m_MethodName: OddEven
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

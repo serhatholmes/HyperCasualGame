@@ -39,10 +39,15 @@ public class SceneMang : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    public void Win()
+    public void OddEven()
     {
         AudioManager.instance.Play("clap");
         SceneManager.LoadScene("OddEven");
+    }
+
+    public void Win()
+    {
+        SceneManager.LoadScene("WinScene");
     }
 
     public void Setting()
