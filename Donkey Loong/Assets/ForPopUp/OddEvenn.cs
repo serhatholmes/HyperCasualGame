@@ -9,7 +9,7 @@ public class OddEvenn : MonoBehaviour
 {
     CoinTurn coinPoint;
 
-    public Text randomNumb;
+    public string randomNumb;
 
     public int theNumber;
 
@@ -17,10 +17,12 @@ public class OddEvenn : MonoBehaviour
 
     public Button evenButton;
 
+    public GameObject theNumb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        theNumb.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,5 +34,35 @@ public class OddEvenn : MonoBehaviour
     public void RandomGenerate ()
     {
         theNumber = Random.Range(1, 10);
+
+        theNumber = theNumber % 2;
+
+        
+
+        theNumb.GetComponent<Text>().text = "" + theNumber;
+
+        //randomNumb = theNumber.ToString();
+
+        StartCoroutine("Waitttt");
+
+
+    }
+
+
+    IEnumerator Waitttt()
+    {
+        Debug.Log("girdi");
+        yield return new WaitForSecondsRealtime(1);
+        theNumb.SetActive(true);
+    }
+
+    public void OddButton()
+    {
+
+    }
+
+    public void EvenButton()
+    {
+
     }
 }
