@@ -38,9 +38,9 @@ public class TouchCounter : MonoBehaviour
         {
             //PanelOpener();
             
-            SceneManager.LoadScene("WinScene");
+            SceneManager.LoadScene("OddEven");
         }
-        if(deathCount==6)
+        if(deathCount==7)
         {
             SceneManager.LoadScene("GameOver");
         }

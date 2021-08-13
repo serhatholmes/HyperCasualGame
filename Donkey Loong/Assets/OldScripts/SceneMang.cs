@@ -7,6 +7,12 @@ using EasyUI.Toast;
 public class SceneMang : MonoBehaviour
 {
 
+    bool isMute = false;
+
+
+ 
+    
+
     public void ExitButton()
     {
         Application.Quit();
@@ -53,6 +59,25 @@ public class SceneMang : MonoBehaviour
     {
         Toast.Show(message, 0.7f);
     }
+
+    public void MusicMute()
+    {
+        if(isMute==false)
+        {
+            Debug.Log("Music is ON");
+            AudioListener.volume = 0;
+            isMute = true;
+        }
+        else
+        {
+            Debug.Log("Music is OFF");
+            AudioListener.volume = 1;
+            isMute = false;
+        }
+    }
+
+    
+
 
     // add rewarded and other adds
 

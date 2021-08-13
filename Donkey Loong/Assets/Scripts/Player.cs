@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
 
     public bool forFinish = false;
 
-    
+    public bool canVibrate = false;
+
+    bool isVibrate = true;
 
     Spawner spawner;
 
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
 
         if (jumpMe == true || forFinish == true)
         {
+
             lr.positionCount = 0;
             jumpForce = gm.force;
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
@@ -183,6 +186,7 @@ public class Player : MonoBehaviour
         {
             Destroy(GameObject.FindWithTag("Boy"));
             Debug.Log("destroyedd");
+            Destroy(gameObject.GetComponent<CapsuleCollider>());
             spawner.SpawnJumper();
 
             
@@ -191,7 +195,14 @@ public class Player : MonoBehaviour
 
         else if(other.tag == "Donkey" )
         {
+            if (canVibrate==true)
+            {
+                Handheld.Vibrate();
+            }
+            else
+            {
 
+            }
             
 
             anim1.Play("Sitting");
@@ -238,11 +249,32 @@ public class Player : MonoBehaviour
             rb.velocity = Vector3.down * (jumpForce) * 1f;
         }
 
-        
+        else if (other.tag == "Wait")
+        {
+            forFinish = false;
+            jumpMe = false;
+        }
 
-      
+
+
     }
     public bool isGrounded;
+
+    public void VibrationMute()
+    {
+        if (isVibrate == true)
+        {
+            Debug.Log("vibration is on");
+            canVibrate = true;
+            isVibrate = false;
+        }
+        else
+        {
+            Debug.Log("vibration is off");
+            canVibrate = false;
+            isVibrate = true;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {

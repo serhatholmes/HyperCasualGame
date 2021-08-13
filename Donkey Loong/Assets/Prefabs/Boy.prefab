@@ -514,6 +514,7 @@ MonoBehaviour:
   col: {fileID: 3372903667339241380}
   rb: {fileID: 3372903667339241381}
   forFinish: 0
+  canVibrate: 0
   canvasObject: {fileID: 0}
   gm: {fileID: 0}
   jumpMe: 0

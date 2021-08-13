@@ -28,6 +28,7 @@ TagManager:
   - Arrow
   - Quiver
   - Selector
+  - Wait
   layers:
   - Default
   - TransparentFX
