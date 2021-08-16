@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class Spawner : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class Spawner : MonoBehaviour
         {
             player1 = other.gameObject.GetComponent<Player>();
             SpawnJumper();
+            
             Debug.Log("spawn");
             other.gameObject.GetComponent<Player>().enabled = false;
         }

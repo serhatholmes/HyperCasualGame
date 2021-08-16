@@ -40,7 +40,9 @@ public class Player : MonoBehaviour
 
     GameObject powers;
 
-    GameObject camera1;
+    //GameObject camera1;
+
+    GameObject force1;
 
     [SerializeField] public GameObject canvasObject;
 
@@ -54,12 +56,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] Button powerButton;
 
-    public LineRenderer lr;
+    
     private Vector3[] positions = new Vector3[2];
 
     void Awake()
     {
-        camera1 = GameObject.FindGameObjectWithTag("Camera");
+        
     }
 
     // Start is called before the first frame update
@@ -70,10 +72,10 @@ public class Player : MonoBehaviour
         powerButton.onClick.RemoveAllListeners();
         powerButton.onClick.AddListener(touchAndJump);
 
-        lr = GetComponent<LineRenderer>();
+        //lr = GetComponent<LineRenderer>();
         positions[0] = transform.position;
         positions[1] = transform.position + transform.forward * 5;
-        lr.SetPositions(positions);
+        //lr.SetPositions(positions);
 
         //aSequence = DOTween.Sequence();
 
@@ -90,8 +92,9 @@ public class Player : MonoBehaviour
 
         powers = GameObject.FindGameObjectWithTag("powerButon");
 
-        
+        force1 = GameObject.FindGameObjectWithTag("Force");
 
+        force1.SetActive(false);
     }
 
 
@@ -100,7 +103,7 @@ public class Player : MonoBehaviour
     {
         positions[0] = transform.position;
         positions[1] = transform.position + transform.forward * 5;
-        lr.SetPositions(positions);
+        //lr.SetPositions(positions);
         if (donuyorum)
         {
             sinValue += increment;
@@ -127,19 +130,42 @@ public class Player : MonoBehaviour
         if (jumpMe == true || forFinish == true)
         {
 
-            lr.positionCount = 0;
+            //lr.positionCount = 0;
             jumpForce = gm.force;
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
+
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-14, 1.5f).OnComplete(() =>
+               {
+                   GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(20, 0, 0), 0.4f, RotateMode.Fast).OnComplete(() =>
+                   {
+                       
+                           
+                               GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-26, 1f);
+                           
+                   });
+               }
+
+            );
+
             
+
+
+            force1.SetActive(false);
 
             AudioManager.instance.Play("Jump");
             anim1.Play("Floating");
 
             jumpMe = false;
 
+            
+
+            
+
             Debug.Log("animasyona girdi");
+
+
         }
         
     }
@@ -157,6 +183,9 @@ public class Player : MonoBehaviour
 
             powers.SetActive(false);
 
+            force1.SetActive(true);
+
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0,2f);
             transform.DOMoveX(0, 2.5f);
 
             yürüdü = true;
@@ -193,6 +222,8 @@ public class Player : MonoBehaviour
             {
                 donuyorum = true;
                 Debug.Log("donuyorum degisti");
+
+                
             }
 
         }
@@ -209,12 +240,15 @@ public class Player : MonoBehaviour
             Destroy(gameObject.GetComponent<CapsuleCollider>());
             spawner.SpawnJumper();
 
-            
+            force1.SetActive(true);
 
         }
 
         else if(other.tag == "Donkey" )
         {
+            
+
+
             if (canVibrate==true)
             {
                 Handheld.Vibrate();
@@ -223,7 +257,8 @@ public class Player : MonoBehaviour
             {
 
             }
-            
+
+            force1.SetActive(true);
 
             anim1.Play("Sitting");
 
@@ -243,6 +278,8 @@ public class Player : MonoBehaviour
 
         else if(other.tag == "Floor")
         {
+            force1.SetActive(true);
+
             spawner.SpawnJumper();
             
             jumpMe = false;

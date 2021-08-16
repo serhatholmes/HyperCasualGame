@@ -31,6 +31,7 @@ TagManager:
   - Wait
   - powerButon
   - Camera
+  - Force
   layers:
   - Default
   - TransparentFX
