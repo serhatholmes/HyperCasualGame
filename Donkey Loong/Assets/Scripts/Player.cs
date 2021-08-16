@@ -38,6 +38,10 @@ public class Player : MonoBehaviour
 
     GameObject quiver;
 
+    GameObject powers;
+
+    GameObject camera1;
+
     [SerializeField] public GameObject canvasObject;
 
     [SerializeField] private Force gm;
@@ -52,6 +56,11 @@ public class Player : MonoBehaviour
 
     public LineRenderer lr;
     private Vector3[] positions = new Vector3[2];
+
+    void Awake()
+    {
+        camera1 = GameObject.FindGameObjectWithTag("Camera");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +87,11 @@ public class Player : MonoBehaviour
         arrow = GameObject.FindGameObjectWithTag("Arrow");
 
         quiver = GameObject.FindGameObjectWithTag("Quiver");
+
+        powers = GameObject.FindGameObjectWithTag("powerButon");
+
+        
+
     }
 
 
@@ -135,9 +149,13 @@ public class Player : MonoBehaviour
 
         if(other.tag =="Spawn")
         {
+            
+
             arrow.SetActive(false);
 
             quiver.SetActive(false);
+
+            powers.SetActive(false);
 
             transform.DOMoveX(0, 2.5f);
 
@@ -162,6 +180,8 @@ public class Player : MonoBehaviour
             arrow.SetActive(true);
 
             quiver.SetActive(true);
+
+            powers.SetActive(true);
 
             forFinish = true;
 

@@ -29,6 +29,8 @@ TagManager:
   - Quiver
   - Selector
   - Wait
+  - powerButon
+  - Camera
   layers:
   - Default
   - TransparentFX
