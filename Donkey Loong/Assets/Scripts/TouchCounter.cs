@@ -19,6 +19,7 @@ public class TouchCounter : MonoBehaviour
 
     int milliseconds = 2000;
 
+    Player player1;
 
     public ParticleSystem sitParticle;
 
@@ -40,7 +41,7 @@ public class TouchCounter : MonoBehaviour
             
             SceneManager.LoadScene("OddEven");
         }
-        if(deathCount==7)
+        if(deathCount>6)
         {
             SceneManager.LoadScene("GameOver");
         }

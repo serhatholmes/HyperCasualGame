@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
 
     GameObject powers;
 
+    
+
     //GameObject camera1;
 
     GameObject force1;
@@ -288,11 +290,17 @@ public class Player : MonoBehaviour
 
             Debug.Log("yere degdi");
             anim1.Play("Dying");
+
+            
+
+            
+            
             rb.constraints = RigidbodyConstraints.FreezeAll;
 
             Destroy(gameObject.GetComponent<CapsuleCollider>());
 
             this.enabled = false;
+
         }
 
         else if(other.tag == "Boy")

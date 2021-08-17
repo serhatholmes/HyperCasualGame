@@ -19937,14 +19937,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 338168144, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 338168149, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
       propertyPath: shaker
       value: 
       objectReference: {fileID: 963194229}
+    - target: {fileID: 794021620, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 794021620, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.66
+      objectReference: {fileID: 0}
     - target: {fileID: 794021624, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
       propertyPath: coinDisplayText
       value: 
