@@ -35,7 +35,7 @@ public class TouchCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(countPlayer==5)
+        if(countPlayer==6)
         {
             //PanelOpener();
             

@@ -14,9 +14,7 @@ public class Ayrılma : MonoBehaviour
 
     public float force = 5f;
 
-    Rigidbody rb1;
-
-    CapsuleCollider cap;
+    
 
     public bool rode = false;
 
@@ -29,9 +27,7 @@ public class Ayrılma : MonoBehaviour
     {
         DOTween.Init();
 
-        cap = GetComponent<CapsuleCollider>();
-
-        rb1 = GetComponent<Rigidbody>();
+        
 
 
 
@@ -42,11 +38,15 @@ public class Ayrılma : MonoBehaviour
     {
         if (rode == true)
         {
-            if (countBoy == 2)
+            if (countBoy == 1)
             {
-                rb1.velocity = Vector3.left * 2;
+                transform.DOShakePosition(0.5f, new Vector3(5, 0, 5), 1, 45, false, true).OnComplete(()=>
+                {
+                    transform.DOMoveX(1, 0.2f);
+
+                });
                 
-                StartCoroutine("Waitt");
+               
                 
 
             }
@@ -61,6 +61,11 @@ public class Ayrılma : MonoBehaviour
             rode = true;
             countBoy++;
         }
+
+        else if (other.gameObject.tag == "Out")
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     IEnumerator Waitt()
@@ -70,11 +75,5 @@ public class Ayrılma : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.tag=="Out")
-        {
-            SceneManager.LoadScene("GameOver");
-        }
-    }
+    
 }

@@ -13,14 +13,13 @@ public class FloorDeath : MonoBehaviour
         {
             deathCountt++;
             Debug.Log("şubir");
+
+            if(deathCountt==3)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
     }
 
-    void Update()
-    {
-        if(deathCountt>3)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
-    }
+    
 }
