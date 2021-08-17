@@ -40,9 +40,9 @@ public class Ayrılma : MonoBehaviour
         {
             if (countBoy == 1)
             {
-                transform.DOShakePosition(0.5f, new Vector3(5, 0, 5), 1, 45, false, true).OnComplete(()=>
+                transform.DOShakePosition(0.5f, new Vector3(1, 0, 1), 1, 15, false, true).OnComplete(()=>
                 {
-                    transform.DOMoveX(1, 0.2f);
+                    transform.DOMoveX(2, 0.2f);
 
                 });
                 

@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
 
             GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-14, 1.5f).OnComplete(() =>
                {
-                   GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(20, 0, 0), 0.4f, RotateMode.Fast).OnComplete(() =>
+                   GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(25, 0, 0), 0.4f, RotateMode.Fast).OnComplete(() =>
                    {
                        
                            

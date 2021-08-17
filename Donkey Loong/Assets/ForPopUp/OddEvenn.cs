@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class OddEvenn : MonoBehaviour
@@ -19,6 +20,10 @@ public class OddEvenn : MonoBehaviour
 
     public GameObject theNumb;
 
+    public GameObject Panel;
+
+    public bool temp = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +33,10 @@ public class OddEvenn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(temp== false)
+        {
+            WinStiuation();
+        }
     }
 
     public void RandomGenerate ()
@@ -48,6 +56,23 @@ public class OddEvenn : MonoBehaviour
 
     }
 
+    public void OpenPanel()
+    {
+        Panel.SetActive(true);
+    }
+
+
+
+    public void WinStiuation()
+    {
+
+
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 3),2.5f,true);
+
+
+    }
+
+
 
     IEnumerator Waitttt()
     {
@@ -55,7 +80,7 @@ public class OddEvenn : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
         //theNumb.SetActive(true);
         theNumb.GetComponent<Text>().text = "" + theNumber;
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSeconds(3);
         OddButton();
     }
 
