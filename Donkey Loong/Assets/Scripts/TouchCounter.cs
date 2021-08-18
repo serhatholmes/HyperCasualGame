@@ -26,6 +26,9 @@ public class TouchCounter : MonoBehaviour
     public ParticleSystem floorParticle;
 
     public ShakerCamera shaker;
+
+    public OddEvenn forODEVEN;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +38,11 @@ public class TouchCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(countPlayer==6)
+        if(countPlayer==2)
         {
             //PanelOpener();
-            
-            SceneManager.LoadScene("OddEven");
+
+            forODEVEN.WinStiuation();
         }
         if(deathCount>6)
         {

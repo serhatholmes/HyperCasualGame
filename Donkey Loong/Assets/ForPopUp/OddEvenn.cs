@@ -28,6 +28,8 @@ public class OddEvenn : MonoBehaviour
     void Start()
     {
         //theNumb.SetActive(false);
+
+        DOTween.Init();
     }
 
     // Update is called once per frame
@@ -59,15 +61,21 @@ public class OddEvenn : MonoBehaviour
     public void OpenPanel()
     {
         Panel.SetActive(true);
+
+        WinStiuation();
     }
 
 
 
-    public void WinStiuation()
+   public void WinStiuation()
     {
+        OpenPanel();
 
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, true).OnComplete(()=>
+        {
+            GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(15, 0, 0), 1.5f, RotateMode.Fast);
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 3),2.5f,true);
+        });
 
 
     }
