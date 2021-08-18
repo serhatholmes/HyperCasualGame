@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using EasyUI.Toast;
+using DG.Tweening;
 
 public class TouchCounter : MonoBehaviour
 {
@@ -32,22 +33,32 @@ public class TouchCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DOTween.Init();
+
+        forODEVEN = FindObjectOfType<OddEvenn>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(countPlayer==2)
-        {
-            //PanelOpener();
-
-            forODEVEN.WinStiuation();
-        }
+       
         if(deathCount>6)
         {
             SceneManager.LoadScene("GameOver");
         }
+
+    }
+
+    public void forPopUpScreen()
+    {
+       
+            forODEVEN.WinStiuation();
+
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, true).OnComplete(() =>
+            {
+                GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(15, 0, 0), 1.5f, RotateMode.Fast);
+
+            });
 
     }
 
@@ -61,7 +72,14 @@ public class TouchCounter : MonoBehaviour
                 sitParticle.Play();
             }
             countPlayer++;
-            
+
+            if (countPlayer == 2)
+            {
+                forPopUpScreen();
+
+
+            }
+
             Debug.Log("tutundu");
             //jump.Play();
 
@@ -69,7 +87,7 @@ public class TouchCounter : MonoBehaviour
 
         else if(other.gameObject.tag=="Floor")
         {
-            StartCoroutine(shaker.Shake(.05f, .6f));
+            
 
             if (!floorParticle.isPlaying)
             {

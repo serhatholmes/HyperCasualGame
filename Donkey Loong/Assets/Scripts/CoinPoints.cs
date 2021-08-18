@@ -41,7 +41,7 @@ public class CoinPoints : MonoBehaviour
         //add the score later
         else if (other.tag == "Boy")
         {
-            // destroy the coin
+            
             Destroy(gameObject);
             Debug.Log("coin");
             currentCoins += 75;

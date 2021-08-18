@@ -62,21 +62,18 @@ public class OddEvenn : MonoBehaviour
     {
         Panel.SetActive(true);
 
-        WinStiuation();
+        
     }
 
 
 
    public void WinStiuation()
     {
+        
+
+       
+
         OpenPanel();
-
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, true).OnComplete(()=>
-        {
-            GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(15, 0, 0), 1.5f, RotateMode.Fast);
-
-        });
-
 
     }
 
@@ -85,24 +82,26 @@ public class OddEvenn : MonoBehaviour
     IEnumerator Waitttt()
     {
         Debug.Log("basladi");
-        yield return new WaitForSecondsRealtime(2);
+        
         //theNumb.SetActive(true);
+        
         theNumb.GetComponent<Text>().text = "" + theNumber;
-        yield return new WaitForSeconds(3);
-        OddButton();
+        yield return new WaitForSeconds(10);
+        
     }
 
     public void OddButton()
     {
+        
         if(theNumber % 2 == 1)
         {
-            StartCoroutine("Waitttt");
+            StartCoroutine(Waitttt());
             SceneManager.LoadScene("WinScene");
         }
 
         else
         {
-            StartCoroutine("Waitttt");
+            StartCoroutine(Waitttt());
             SceneManager.LoadScene("GameOver");
         }
     }
@@ -111,13 +110,13 @@ public class OddEvenn : MonoBehaviour
     {
         if(theNumber % 2 == 0)
         {
-            StartCoroutine("Waitttt");
+            StartCoroutine(Waitttt());
             SceneManager.LoadScene("WinScene");
         }
 
         else
         {
-            StartCoroutine("Waitttt");
+            StartCoroutine(Waitttt());
             SceneManager.LoadScene("GameOver");
         }
     }
