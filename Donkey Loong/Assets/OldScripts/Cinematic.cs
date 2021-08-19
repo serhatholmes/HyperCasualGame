@@ -9,7 +9,7 @@ public class Cinematic : MonoBehaviour
     public GameObject player;
     [SerializeField] private Animator anim1;
     private Rigidbody rb1;
-    private bool Walk = true;
+    //private bool Walk = true;
 
      
 

@@ -1,16 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class IdleDance : MonoBehaviour
+
+public class CharacterChanging : MonoBehaviour
 {
-    private Animator animi;
-    //private bool dancing =true;
+    public Text lockedText;
 
     // Start is called before the first frame update
     void Start()
     {
-        animi = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -18,4 +19,6 @@ public class IdleDance : MonoBehaviour
     {
         
     }
+
+    
 }

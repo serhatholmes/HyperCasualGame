@@ -18,7 +18,7 @@ public class TouchCounter : MonoBehaviour
 
     public GameObject Panel;
 
-    int milliseconds = 2000;
+    //int milliseconds = 2000;
 
     Player player1;
 

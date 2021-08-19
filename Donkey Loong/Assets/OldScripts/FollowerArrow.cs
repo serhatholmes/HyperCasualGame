@@ -7,7 +7,7 @@ public class FollowerArrow : MonoBehaviour
     public GameObject objA;
     public GameObject objB;
 
-    float smooth = 0.5f;
+    //float smooth = 0.5f;
 
     private void Start()
     {
