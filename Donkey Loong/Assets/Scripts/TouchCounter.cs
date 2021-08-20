@@ -30,12 +30,16 @@ public class TouchCounter : MonoBehaviour
 
     public OddEvenn forODEVEN;
 
+    public AudioSource winSound;
+
     // Start is called before the first frame update
     void Start()
     {
         DOTween.Init();
 
         forODEVEN = FindObjectOfType<OddEvenn>();
+
+        winSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class TouchCounter : MonoBehaviour
             forODEVEN.WinStiuation();
 
             GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, true);
-
+            winSound.Play(0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,7 +73,7 @@ public class TouchCounter : MonoBehaviour
             }
             countPlayer++;
 
-            if (countPlayer == 2)
+            if (countPlayer == 3)
             {
                 forPopUpScreen();
 
