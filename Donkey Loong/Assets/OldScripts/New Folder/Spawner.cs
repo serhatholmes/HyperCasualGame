@@ -6,14 +6,15 @@ using DG.Tweening;
 
 public class Spawner : MonoBehaviour
 {
-   
 
+    CharacterChanging char1;
   
 
     [SerializeField] Transform startPos;
     [SerializeField] GameObject obj;
     [SerializeField] bool spawning = false;
 
+    public SkinnedMeshRenderer smr;
 
     private int timeCounter;
     private int spawnTime;
@@ -24,6 +25,12 @@ public class Spawner : MonoBehaviour
     int chcCount = 0;
     int destroyCount = 0;
     GameObject[] chcs=new GameObject[10];
+
+    void Start()
+    {
+        //smr = GameObject.FindObjectOfType<SkinnedMeshRenderer>();
+        //char1 = gameObject.GetComponent<SkinnedMeshRenderer>().materials;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

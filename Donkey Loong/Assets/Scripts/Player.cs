@@ -135,6 +135,8 @@ public class Player : MonoBehaviour
             //lr.positionCount = 0;
             jumpForce = gm.force;
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
+            anim1.Play("JumpBoy");
+            //anim1.SetBool("Jump", true);
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
