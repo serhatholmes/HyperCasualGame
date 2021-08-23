@@ -40,11 +40,15 @@ public class Player : MonoBehaviour
 
     GameObject powers;
 
-    
+    EsekAnim esek;
+
+    ParticleSyst particlee;
 
     //GameObject camera1;
 
     GameObject force1;
+
+    public Text yıkıldı;
 
     [SerializeField] public GameObject canvasObject;
 
@@ -58,7 +62,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] Button powerButton;
 
-    
+    public int bump = 0;
+
     private Vector3[] positions = new Vector3[2];
 
     void Awake()
@@ -97,6 +102,10 @@ public class Player : MonoBehaviour
         force1 = GameObject.FindGameObjectWithTag("Force");
 
         force1.SetActive(false);
+
+        esek = FindObjectOfType<EsekAnim>();
+
+        particlee = FindObjectOfType<ParticleSyst>();
     }
 
 
@@ -110,7 +119,7 @@ public class Player : MonoBehaviour
         {
             sinValue += increment;
 
-            transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
+            transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 18, 0));
         }
 
 
@@ -119,7 +128,10 @@ public class Player : MonoBehaviour
     public void touchAndJump()
     {
 
-        
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.3f).OnComplete(() =>
+        {
+            
+        });
 
         if (donuyorum)
         {
@@ -134,24 +146,26 @@ public class Player : MonoBehaviour
 
             //lr.positionCount = 0;
             jumpForce = gm.force;
+
+            
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
             anim1.Play("JumpBoy");
             //anim1.SetBool("Jump", true);
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-14, 1.5f).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(8.97f, 0.3f).OnComplete(() =>
                {
-                   GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(25, 0, 0), 0.4f, RotateMode.Fast).OnComplete(() =>
+                   GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-16f, 0.4f).OnComplete(() =>
                    {
-                       
-                           
-                               GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-26, 1f);
-                           
-                   });
-               }
+                       GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-25.41f, 0.5f).OnComplete(() =>
+                       {
+                           //GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-8.1f, 0.2f);
+                       });
 
-            );
+                   });
+
+               });
 
             
 
@@ -159,7 +173,8 @@ public class Player : MonoBehaviour
             force1.SetActive(false);
 
             AudioManager.instance.Play("Jump");
-            anim1.Play("Floating");
+
+            
 
             jumpMe = false;
 
@@ -189,7 +204,7 @@ public class Player : MonoBehaviour
 
             force1.SetActive(true);
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0,2f);
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-3,1.5f);
             transform.DOMoveX(0, 2.5f);
 
             yürüdü = true;
@@ -321,7 +336,18 @@ public class Player : MonoBehaviour
             forFinish = false;
             jumpMe = false;
         }
+        
+        else if(other.tag == "Stair")
+        {
+            if (bump ==2) {
+                StartCoroutine(Blowp());
 
+            }
+            else
+            {
+                bump++;
+            }
+        }
 
 
     }
@@ -361,5 +387,24 @@ public class Player : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
     }
 
-    
+    IEnumerator Jumpi()
+    {
+        yield return new WaitForSeconds(0.5f);
+        anim1.Play("Floating");
+        
+    }
+
+
+    IEnumerator Blowp()
+    {
+        //yıkıldı.gameObject.SetActive(true);
+        
+        particlee.particleee();
+        
+        yield return new WaitForSeconds(3);
+        esek.BlowUp();
+        Time.timeScale = 1;
+        SceneManager.LoadScene("GameOver");
+        
+    }
 }

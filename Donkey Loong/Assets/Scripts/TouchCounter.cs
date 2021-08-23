@@ -58,7 +58,10 @@ public class TouchCounter : MonoBehaviour
        
             forODEVEN.WinStiuation();
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, true);
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, false).OnComplete(() =>
+        {
+            GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(14.7f,12,0), 0.2f, RotateMode.Fast);
+        });
             winSound.Play(0);
     }
 

@@ -26,10 +26,14 @@ public class Spawner : MonoBehaviour
     int destroyCount = 0;
     GameObject[] chcs=new GameObject[10];
 
+    public GameObject[] characterPrefabs;
+
     void Start()
     {
         //smr = GameObject.FindObjectOfType<SkinnedMeshRenderer>();
         //char1 = gameObject.GetComponent<SkinnedMeshRenderer>().materials;
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +56,7 @@ public class Spawner : MonoBehaviour
             spawnTrigger = true;
             StartCoroutine(spawnTriggerResetter());
             var character = Instantiate(obj, startPos.position, Quaternion.identity);
+            //character = player1.GetComponent<SkinnedMeshRenderer>();
             chcCount++;
             destroyCount++;
             Debug.Log("artması lazım");

@@ -26,4 +26,9 @@ public class ParticleSyst : MonoBehaviour
     {
         
     }
+
+    public void particleee()
+    {
+        sitPart.Play();
+    }
 }

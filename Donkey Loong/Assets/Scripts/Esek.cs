@@ -26,7 +26,7 @@ public class Esek : MonoBehaviour
 
     void Update()
     {
-        if(counter==2)
+        if(counter==3)
         {
             if(forRB==true)
             {

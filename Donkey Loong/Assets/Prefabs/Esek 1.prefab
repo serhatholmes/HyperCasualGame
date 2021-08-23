@@ -203,9 +203,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.6313202
-  m_Height: 1.8185338
+  m_Height: 1.7427118
   m_Direction: 1
-  m_Center: {x: 0.04656141, y: 0.15601797, z: -0.02604866}
+  m_Center: {x: 0.04656141, y: 0.15060134, z: -0.02604866}
 --- !u!54 &338168148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -237,6 +237,8 @@ MonoBehaviour:
   startPos: {fileID: 0}
   obj: {fileID: 2436474700094184965, guid: b2326c4518b1b4387bf6c973a938358c, type: 3}
   spawning: 0
+  smr: {fileID: 0}
+  characterPrefabs: []
 --- !u!114 &338168149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +258,7 @@ MonoBehaviour:
     type: 3}
   shaker: {fileID: 0}
   forODEVEN: {fileID: 0}
+  winSound: {fileID: 0}
 --- !u!1 &461079681
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +475,7 @@ GameObject:
   - component: {fileID: 1291800088}
   m_Layer: 8
   m_Name: FallApart (2)
-  m_TagString: Untagged
+  m_TagString: Stair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,7 +488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291800086}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.021464773, y: 0.96, z: 0.647}
+  m_LocalPosition: {x: 0.021464773, y: 1.22, z: 0.647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 640889966248917976}
@@ -581,7 +584,7 @@ GameObject:
   - component: {fileID: 1489439988}
   m_Layer: 8
   m_Name: FallApart (1)
-  m_TagString: Untagged
+  m_TagString: Stair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -594,7 +597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489439986}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.00745222, y: 0.873, z: 0.51}
+  m_LocalPosition: {x: -0.00745222, y: 1.14, z: 0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405865383467040824}
@@ -799,7 +802,7 @@ GameObject:
   - component: {fileID: 1896436668}
   m_Layer: 8
   m_Name: FallApart
-  m_TagString: Untagged
+  m_TagString: Stair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -812,7 +815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896436663}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.914, z: 0.541}
+  m_LocalPosition: {x: 0, y: 1.182, z: 0.541}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2788963940581702772}
@@ -906,7 +909,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: {fileID: 1896436665}
-  anim2: {fileID: 0}
   isIt: 0
 --- !u!1 &2129899971732208463
 GameObject:
@@ -962,7 +964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: {fileID: 1489439989}
-  anim2: {fileID: 0}
   isIt: 0
 --- !u!114 &2129899971834308759
 MonoBehaviour:
@@ -977,7 +978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: {fileID: 1291800089}
-  anim2: {fileID: 0}
   isIt: 0
 --- !u!1 &7828487966147398090
 GameObject:
@@ -6141,7 +6141,7 @@ PrefabInstance:
     - target: {fileID: 708974996731856022, guid: f33860961822646c39f5891919432bb8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 708974996731856022, guid: f33860961822646c39f5891919432bb8,
         type: 3}
@@ -6241,7 +6241,7 @@ PrefabInstance:
     - target: {fileID: 2070745134483972005, guid: f33860961822646c39f5891919432bb8,
         type: 3}
       propertyPath: m_Mass
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2070745134483972005, guid: f33860961822646c39f5891919432bb8,
         type: 3}
@@ -6457,7 +6457,7 @@ PrefabInstance:
     - target: {fileID: 1708543365599868350, guid: 1d2845c72c9fe4f1d9521163e3e07e45,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1708543365599868350, guid: 1d2845c72c9fe4f1d9521163e3e07e45,
         type: 3}
@@ -6572,7 +6572,7 @@ PrefabInstance:
     - target: {fileID: 1853715584672430899, guid: 1d2845c72c9fe4f1d9521163e3e07e45,
         type: 3}
       propertyPath: m_Mass
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1853715584672430899, guid: 1d2845c72c9fe4f1d9521163e3e07e45,
         type: 3}
@@ -6758,7 +6758,7 @@ PrefabInstance:
     - target: {fileID: 2112338467123499748, guid: 6db36e6601f434ec69cf6d019f5a2fe2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2112338467123499748, guid: 6db36e6601f434ec69cf6d019f5a2fe2,
         type: 3}
@@ -6843,7 +6843,7 @@ PrefabInstance:
     - target: {fileID: 2768033669007152457, guid: 6db36e6601f434ec69cf6d019f5a2fe2,
         type: 3}
       propertyPath: m_Mass
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2768033669007152457, guid: 6db36e6601f434ec69cf6d019f5a2fe2,
         type: 3}

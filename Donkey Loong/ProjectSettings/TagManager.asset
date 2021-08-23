@@ -32,6 +32,7 @@ TagManager:
   - powerButon
   - Camera
   - Force
+  - Try
   layers:
   - Default
   - TransparentFX

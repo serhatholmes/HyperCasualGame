@@ -1,24 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 
 public class EsekAnim : MonoBehaviour
 {
     public CapsuleCollider coll;
 
-    public Animator anim2;
+    Animator anim2;
 
     public bool isIt = false;
 
-    
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        DOTween.Init();
+        
        anim2 = GetComponent<Animator>();
 
         coll = GetComponent<CapsuleCollider>();
+
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -32,4 +37,15 @@ public class EsekAnim : MonoBehaviour
         anim2.SetBool("dead", true);
         isIt = true;
     }
+
+
+    public void BlowUp()
+    {
+        rb.transform.DOMoveX(-2, 0.5f);
+        rb.velocity = Vector3.up * 1.5f;
+        anim2.Play("GirlFall");
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 0), 0.3f, true);
+        Time.timeScale =0;
+    }
+
 }
