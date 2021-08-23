@@ -421,12 +421,12 @@ GameObject:
   - component: {fileID: 1540258712}
   - component: {fileID: 6924973546740747784}
   m_Layer: 0
-  m_Name: Boy
+  m_Name: Boy_1
   m_TagString: Boy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1696521205584096278
 Transform:
   m_ObjectHideFlags: 0
@@ -505,6 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a54d493c836478497ee2e51b18a797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterIndex: 0
   anim1: {fileID: 8719323805741564268}
   targetPosRot: {fileID: 0}
   groundLayers:
@@ -515,6 +516,7 @@ MonoBehaviour:
   rb: {fileID: 3372903667339241381}
   forFinish: 0
   canVibrate: 0
+  arrow: {fileID: 8408215992568147341}
   canvasObject: {fileID: 0}
   gm: {fileID: 0}
   jumpMe: 0
@@ -766,7 +768,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 55
+      scalar: 80
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1046,7 +1048,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 16
+    maxNumParticles: 32
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4266,11 +4268,11 @@ ParticleSystem:
   TrailModule:
     enabled: 0
     mode: 0
-    ratio: 1
+    ratio: 0.1
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4320,7 +4322,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0.1
     textureMode: 0
     ribbonCount: 1
     shadowBias: 0.5
@@ -4336,7 +4338,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4452,7 +4454,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5830,7 +5832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5251716620377452282
 Transform:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ public class TouchCounter : MonoBehaviour
             }
             countPlayer++;
 
-            if (countPlayer == 3)
+            if (countPlayer == 1)
             {
                 forPopUpScreen();
 

@@ -8,6 +8,8 @@ using EasyUI.Toast;
 
 public class Player : MonoBehaviour
 {
+    public int characterIndex;
+
     //Sequence aSequence;
 
     public Animator anim1;
@@ -30,10 +32,13 @@ public class Player : MonoBehaviour
 
     bool isVibrate = true;
 
+    bool isJumping = false;
+
     Spawner spawner;
 
     CoinTurn cnTurn;
-
+    
+    [SerializeField]
     GameObject arrow;
 
     GameObject quiver;
@@ -52,7 +57,7 @@ public class Player : MonoBehaviour
     [SerializeField] public bool jumpMe = false;
 
     private float sinValue = 0f;
-    private float increment = 0.072f;
+    private float increment = 0.076f;
     private bool rotationStopped = false;
     [SerializeField] bool donuyorum = false;
 
@@ -60,11 +65,6 @@ public class Player : MonoBehaviour
 
     
     private Vector3[] positions = new Vector3[2];
-
-    void Awake()
-    {
-        
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -88,15 +88,17 @@ public class Player : MonoBehaviour
 
         gm = FindObjectOfType<Force>();
 
-        arrow = GameObject.FindGameObjectWithTag("Arrow");
+        arrow.SetActive(true);
 
-        quiver = GameObject.FindGameObjectWithTag("Quiver");
+        // quiver= GameObject.FindGameObjectWithTag("Quiver");
 
-        powers = GameObject.FindGameObjectWithTag("powerButon");
+        //powers = GameObject.FindGameObjectWithTag("powerButon");
 
-        force1 = GameObject.FindGameObjectWithTag("Force");
+        //force1 = GameObject.FindGameObjectWithTag("Force");
 
-        force1.SetActive(false);
+        arrow.SetActive(false);
+
+        //force1.SetActive(false);
     }
 
 
@@ -132,31 +134,11 @@ public class Player : MonoBehaviour
         if (jumpMe == true || forFinish == true)
         {
 
-            //lr.positionCount = 0;
-            jumpForce = gm.force;
-            rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
-            anim1.Play("JumpBoy");
-            //anim1.SetBool("Jump", true);
 
-            Destroy(GameObject.FindGameObjectWithTag("Arrow"));
-
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-14, 1.5f).OnComplete(() =>
-               {
-                   GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(25, 0, 0), 0.4f, RotateMode.Fast).OnComplete(() =>
-                   {
-                       
-                           
-                               GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-26, 1f);
-                           
-                   });
-               }
-
-            );
-
-            
+            StartCoroutine(jumping());
 
 
-            force1.SetActive(false);
+            //force1.SetActive(false);
 
             AudioManager.instance.Play("Jump");
             anim1.Play("Floating");
@@ -183,13 +165,13 @@ public class Player : MonoBehaviour
 
             arrow.SetActive(false);
 
-            quiver.SetActive(false);
+            //quiver.SetActive(false);
 
-            powers.SetActive(false);
+            //SetActive(false);
 
-            force1.SetActive(true);
+            //force1.SetActive(true);
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0,2f);
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-6.82f,2f);
             transform.DOMoveX(0, 2.5f);
 
             yürüdü = true;
@@ -210,11 +192,13 @@ public class Player : MonoBehaviour
 
         else if (other.tag == "Finish" )
         {
+            //GameObject.FindGameObjectWithTag("Arrow").SetActive(true);
+
             arrow.SetActive(true);
 
-            quiver.SetActive(true);
+            //quiver.SetActive(true);
 
-            powers.SetActive(true);
+            //powers.SetActive(true);
 
             forFinish = true;
 
@@ -244,7 +228,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject.GetComponent<CapsuleCollider>());
             spawner.SpawnJumper();
 
-            force1.SetActive(true);
+            //force1.SetActive(true);
 
         }
 
@@ -262,7 +246,7 @@ public class Player : MonoBehaviour
 
             }
 
-            force1.SetActive(true);
+            //force1.SetActive(true);
 
             anim1.Play("Sitting");
 
@@ -282,7 +266,7 @@ public class Player : MonoBehaviour
 
         else if(other.tag == "Floor")
         {
-            force1.SetActive(true);
+            //force1.SetActive(true);
 
             spawner.SpawnJumper();
             
@@ -353,13 +337,42 @@ public class Player : MonoBehaviour
         
     }
 
-
-
     IEnumerator Wait()
     {
         Debug.Log("girdi");
         yield return new WaitForSecondsRealtime(2);
     }
 
-    
+    IEnumerator jumping()
+    {
+        //lr.positionCount = 0;
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(6, 0.5f);
+        jumpForce = gm.force;
+        rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
+        isJumping = true;
+        
+            
+        anim1.Play("JumpBoy");
+        
+
+        
+
+       // GameObject.FindGameObjectWithTag("Arrow").SetActive(false);
+
+
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(8.92f, 0.5f).OnComplete(()=>
+        {
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-13, 0.5f).OnComplete(() =>
+             {
+                 GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-22.24f, 0.5f).OnComplete(() =>
+                 {
+                     GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(-7.8f, 8.93f, -22.24f), 1f, false);
+                 });
+
+             });
+        }
+
+        );
+        yield return new WaitForSeconds(0.5f);
+    }
 }

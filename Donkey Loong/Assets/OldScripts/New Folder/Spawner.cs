@@ -26,8 +26,21 @@ public class Spawner : MonoBehaviour
     int destroyCount = 0;
     GameObject[] chcs=new GameObject[10];
 
+    private CharacterSelect _characterSelect;
+
+    public GameObject arrowsPrefab;
+
+    void Awake()
+    {
+       
+    }
+
     void Start()
     {
+        _characterSelect = FindObjectOfType<CharacterSelect>();
+
+        obj = _characterSelect.GetSelectedCharacter();
+
         //smr = GameObject.FindObjectOfType<SkinnedMeshRenderer>();
         //char1 = gameObject.GetComponent<SkinnedMeshRenderer>().materials;
     }
@@ -52,13 +65,15 @@ public class Spawner : MonoBehaviour
             spawnTrigger = true;
             StartCoroutine(spawnTriggerResetter());
             var character = Instantiate(obj, startPos.position, Quaternion.identity);
+            Instantiate(arrowsPrefab);
+            arrowsPrefab.transform.SetParent(player1.transform);
             chcCount++;
             destroyCount++;
-            Debug.Log("artması lazım");
+            
 
             if (chcCount == 10)
             {
-                Debug.Log("Saydı");
+                Debug.Log("Count");
                 chcCount = 0;
                 
             }
