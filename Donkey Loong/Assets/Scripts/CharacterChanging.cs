@@ -9,22 +9,6 @@ public class CharacterChanging : MonoBehaviour
 {
     
     public Text lockedText1;
-
-    /*
-    public Text lockedText2;
-    public Text lockedText3;
-
-    public Button buttonC0;
-    public Button buttonC1;
-    public Button buttonC2;
-    public Button buttonC3;
-
-    public GameObject model0;
-    public GameObject model1;
-    public GameObject model2;
-    public GameObject model3;
-    */
-
     private GameObject[] characterList;
     private int index=0;
 
