@@ -34,7 +34,7 @@ public class EsekAnim : MonoBehaviour
     {
         if(countClick==20)
         {
-
+            
         }
     }
 
@@ -51,7 +51,7 @@ public class EsekAnim : MonoBehaviour
         rb.velocity = Vector3.up * 1.5f;
         anim2.Play("GirlFall");
         GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 0), 0.3f, true);
-        Time.timeScale =0;
+        
     }
 
     public void ButtonClickCount()

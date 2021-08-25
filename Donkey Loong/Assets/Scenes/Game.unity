@@ -22002,9 +22002,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 338168149, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
+      propertyPath: Panel
+      value: 
+      objectReference: {fileID: 438152052}
+    - target: {fileID: 338168149, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
       propertyPath: shaker
       value: 
       objectReference: {fileID: 963194229}
+    - target: {fileID: 338168149, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
+      propertyPath: winSound
+      value: 
+      objectReference: {fileID: 206642771}
     - target: {fileID: 1794766144, guid: cabd2ac9aef5f420897a96e47cef1998, type: 3}
       propertyPath: coinDisplayText
       value: 

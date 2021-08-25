@@ -18,7 +18,7 @@ public class Esek : MonoBehaviour
 
     public bool forRB = false;
 
-    float timer = 0;
+    //float timer = 0;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class Esek : MonoBehaviour
 
     void Update()
     {
-        timer = Time.deltaTime;
+        
 
         /*void OnGUI()
         {
