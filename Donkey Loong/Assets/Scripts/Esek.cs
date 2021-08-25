@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class Esek : MonoBehaviour
@@ -13,20 +14,34 @@ public class Esek : MonoBehaviour
 
     public bool dead = false;
 
-    
+    ParticleSyst particleee;
 
     public bool forRB = false;
+
+    float timer = 0;
 
     void Start()
     {
         DOTween.Init();
+
+        //particleee = GetComponent<ParticleSyst>();
 
         forAnim = FindObjectOfType<EsekAnim>();
     }
 
     void Update()
     {
-        if(counter==3)
+        timer = Time.deltaTime;
+
+        /*void OnGUI()
+        {
+            if(timer < 5)
+            {
+                GUI.Label
+            }
+        } */
+
+        if(counter==2)
         {
             if(forRB==true)
             {
@@ -50,15 +65,25 @@ public class Esek : MonoBehaviour
                 counter++;
                 forRB = true;
                 Debug.Log("önce");
+
+                if(counter==2)
+                {
+                Debug.Log("Yıkılmış olması lazım");
+                //particleee.particleee();
+                StartCoroutine(DownDead());
+                
+                
+                }
             }
 
-        if(other.gameObject.tag == ("Floor"))
-            {
-            
-                forAnim.playAnimation();
-                dead = true;
-                Debug.Log("sonra");
-        }
+       
+    }
+
+    IEnumerator DownDead()
+    {
+        yield return new WaitForSeconds(4);
+        forAnim.BlowUp();
+        SceneManager.LoadScene("GameOver");
     }
 
 

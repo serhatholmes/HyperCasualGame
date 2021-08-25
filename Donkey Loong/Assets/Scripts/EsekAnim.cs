@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 
 public class EsekAnim : MonoBehaviour
@@ -13,6 +14,8 @@ public class EsekAnim : MonoBehaviour
     public bool isIt = false;
 
     Rigidbody rb;
+
+    public int countClick = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +32,10 @@ public class EsekAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(countClick==20)
+        {
+
+        }
     }
 
     public void playAnimation()
@@ -46,6 +52,11 @@ public class EsekAnim : MonoBehaviour
         anim2.Play("GirlFall");
         GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 0), 0.3f, true);
         Time.timeScale =0;
+    }
+
+    public void ButtonClickCount()
+    {
+        countClick++;
     }
 
 }

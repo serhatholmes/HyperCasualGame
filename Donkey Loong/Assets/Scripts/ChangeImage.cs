@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class ChangeImage : MonoBehaviour
 {
-    [SerializeField] public Sprite newButtonImage;
+    /*[SerializeField] public Sprite newButtonImage;
     public Button button;
 
     public Sprite originalButtonImage;
     private bool isOriginal = true;
+    */
+
+    private bool stepOne = true;
+
+    public Button powering;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        //tekst = powering.GetComponent<Text>();
 
     }
 
@@ -28,19 +33,17 @@ public class ChangeImage : MonoBehaviour
     {
         
 
-        if (isOriginal)
+        if (stepOne)
         {
-
-            button.image.sprite = newButtonImage;
-            isOriginal = false;
+            GameObject.FindGameObjectWithTag("PowerButton").GetComponent<Text>().text = "JUMP!";
+           
 
         }
 
         else
         {
-
-            button.image.sprite = originalButtonImage;
-            isOriginal = true;
+            GameObject.FindGameObjectWithTag("PowerButton").GetComponent<Text>().text = "STOP!";
+            
 
         }
     }

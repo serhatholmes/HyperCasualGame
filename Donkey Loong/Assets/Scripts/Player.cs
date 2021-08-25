@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     [SerializeField] public bool jumpMe = false;
 
     private float sinValue = 0f;
-    private float increment = 0.072f;
+    private float increment = 0.05f;
     private bool rotationStopped = false;
     [SerializeField] bool donuyorum = false;
 
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
         {
             sinValue += increment;
 
-            transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 18, 0));
+            transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 24, 0));
         }
 
 
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
     public void touchAndJump()
     {
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.3f).OnComplete(() =>
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.25f).OnComplete(() =>
         {
             
         });
@@ -154,11 +154,11 @@ public class Player : MonoBehaviour
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(8.97f, 0.3f).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(10f, 0.25f).OnComplete(() =>
                {
-                   GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-16f, 0.4f).OnComplete(() =>
+                   GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-15f, 0.4f).OnComplete(() =>
                    {
-                       GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-25.41f, 0.5f).OnComplete(() =>
+                       GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-25.41f, 0.4f).OnComplete(() =>
                        {
                            //GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-8.1f, 0.2f);
                        });
@@ -337,21 +337,13 @@ public class Player : MonoBehaviour
             jumpMe = false;
         }
         
-        else if(other.tag == "Stair")
-        {
-            if (bump ==2) {
-                StartCoroutine(Blowp());
-
-            }
-            else
-            {
-                bump++;
-            }
-        }
+       
 
 
     }
     public bool isGrounded;
+
+    
 
     public void VibrationMute()
     {
@@ -389,7 +381,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Jumpi()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         anim1.Play("Floating");
         
     }
@@ -398,10 +390,10 @@ public class Player : MonoBehaviour
     IEnumerator Blowp()
     {
         //yıkıldı.gameObject.SetActive(true);
-        
+        Debug.Log("Yıkılmış olması lazım");
         particlee.particleee();
         
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         esek.BlowUp();
         Time.timeScale = 1;
         SceneManager.LoadScene("GameOver");

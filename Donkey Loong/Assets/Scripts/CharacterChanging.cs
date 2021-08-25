@@ -12,8 +12,19 @@ public class CharacterChanging : MonoBehaviour
     private GameObject[] characterList;
     private int index=0;
 
+    CoinPoints pointDec;
+    public int decrease = 100;
+    GameObject coinn;
+    string coin;
+    public Text coinText;
+
     void Start()
     {
+        
+        
+        //Text text = coinText.GetComponent<Text>();
+        //text.text = coin;
+
         index = PlayerPrefs.GetInt("CharacterSelected");
             
             characterList = new GameObject[transform.childCount];
@@ -34,6 +45,11 @@ public class CharacterChanging : MonoBehaviour
             //we toggle on the selected character
             if (characterList[index])
                 characterList[index].SetActive(true); 
+        
+    }
+
+    void Update()
+    {
         
     }
 
@@ -70,8 +86,10 @@ public class CharacterChanging : MonoBehaviour
     public void ConfirmButton()
     {
         lockedText1.text = "Unlocked";
-
+        //pointDec.boughtSkin();
         PlayerPrefs.SetInt("CharacterSelected", index);
+
+
     }
 
 

@@ -1216,6 +1216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinDisplayText: {fileID: 954505725}
   currentCoins: 0
+  decrs: 100
 --- !u!1001 &261097972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3029,18 +3030,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 60
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 6
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: STOP
 --- !u!222 &701944725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14365,6 +14366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinDisplayText: {fileID: 954505725}
   currentCoins: 0
+  decrs: 100
 --- !u!1 &1177040501
 GameObject:
   m_ObjectHideFlags: 0
@@ -14967,6 +14969,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedText1: {fileID: 0}
+  decrease: 100
+  coinText: {fileID: 0}
 --- !u!4 &1336843923
 Transform:
   m_ObjectHideFlags: 0
@@ -15263,17 +15267,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1419145436}
-        m_MethodName: ChangeButtonImage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1419145434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15293,7 +15286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 73fd11e3f3e674337947f64fef5be1e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b54512558a841f4288117ad959ec858, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15323,9 +15316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857ede5028b874dccb58afe1068678e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newButtonImage: {fileID: 0}
-  button: {fileID: 1419145433}
-  originalButtonImage: {fileID: 0}
+  powering: {fileID: 0}
 --- !u!1 &1446629063
 GameObject:
   m_ObjectHideFlags: 0
@@ -20382,6 +20373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinDisplayText: {fileID: 954505725}
   currentCoins: 0
+  decrs: 100
 --- !u!1001 &1607144779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20748,6 +20740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinDisplayText: {fileID: 954505725}
   currentCoins: 0
+  decrs: 100
 --- !u!1 &1814024264
 GameObject:
   m_ObjectHideFlags: 0
@@ -21211,7 +21204,7 @@ Transform:
   m_GameObject: {fileID: 1927103094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.55, y: 1, z: 4}
+  m_LocalScale: {x: 2.55, y: 1, z: 4.1652}
   m_Children: []
   m_Father: {fileID: 1453625130}
   m_RootOrder: 0

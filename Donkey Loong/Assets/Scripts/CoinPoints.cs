@@ -11,6 +11,8 @@ public class CoinPoints : MonoBehaviour
 
     public int currentCoins = 0;
 
+    public int decrs = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,5 +53,10 @@ public class CoinPoints : MonoBehaviour
 
 
         }
+    }
+
+    public void boughtSkin()
+    {
+        currentCoins = currentCoins - decrs;
     }
 }
