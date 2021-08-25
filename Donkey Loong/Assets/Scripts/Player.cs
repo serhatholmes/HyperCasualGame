@@ -66,6 +66,8 @@ public class Player : MonoBehaviour
 
     private Vector3[] positions = new Vector3[2];
 
+    public int finish = 0;
+
     void Awake()
     {
         
@@ -128,9 +130,15 @@ public class Player : MonoBehaviour
     public void touchAndJump()
     {
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.25f).OnComplete(() =>
+        
+      
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-7.73f, 0.4f).OnComplete(() =>
         {
-            
+                    GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(5f, 20f, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
+                        {
+                            
+                        });
+                
         });
 
         if (donuyorum)
@@ -147,7 +155,9 @@ public class Player : MonoBehaviour
             //lr.positionCount = 0;
             jumpForce = gm.force;
 
-            
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.4f);
+
+
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
             anim1.Play("JumpBoy");
             //anim1.SetBool("Jump", true);
@@ -225,6 +235,11 @@ public class Player : MonoBehaviour
 
         else if (other.tag == "Finish" )
         {
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0, 0.4f).OnComplete(() =>
+            {
+                GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(0, 0, 0), 0.4f,RotateMode.Fast);
+            });
+
             arrow.SetActive(true);
 
             quiver.SetActive(true);
@@ -300,7 +315,9 @@ public class Player : MonoBehaviour
             force1.SetActive(true);
 
             spawner.SpawnJumper();
-            
+
+            finish++;
+
             jumpMe = false;
 
             AudioManager.instance.Play("Sit");
@@ -308,7 +325,10 @@ public class Player : MonoBehaviour
             Debug.Log("yere degdi");
             anim1.Play("Dying");
 
-            
+            if(finish==3)
+            {
+                StartCoroutine(Finish());
+            }
 
             
             
@@ -384,6 +404,13 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         anim1.Play("Floating");
         
+    }
+
+    IEnumerator Finish()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GameOver");
+
     }
 
 

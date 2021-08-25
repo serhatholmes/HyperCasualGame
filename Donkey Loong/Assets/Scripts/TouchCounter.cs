@@ -8,6 +8,13 @@ using DG.Tweening;
 public class TouchCounter : MonoBehaviour
 {
 
+    /*
+     * 8 atma hakkı olsun, 3ü dışarı giderse kaybedilsin
+     * eşek yıkılınca biz kazanalım- direkt win ekranı
+     * 
+     * 
+      */
+
     CoinTurn cTurn;
 
     //public ParticleSystem jump;
@@ -76,7 +83,7 @@ public class TouchCounter : MonoBehaviour
             }
             countPlayer++;
 
-            if (countPlayer == 3)
+            if (countPlayer == 5)
             {
                 forPopUpScreen();
 
@@ -99,7 +106,10 @@ public class TouchCounter : MonoBehaviour
 
             deathCount++;
 
-
+            if(deathCount == 6)
+            {
+                StartCoroutine(forDeath());
+            }
             
             Debug.Log("ölüyor");
             
@@ -108,6 +118,12 @@ public class TouchCounter : MonoBehaviour
 
 
             
+    }
+
+    IEnumerator forDeath()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GameOver");
     }
 
     /*public void PanelOpener()

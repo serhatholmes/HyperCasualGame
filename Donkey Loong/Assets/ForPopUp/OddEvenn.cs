@@ -82,11 +82,12 @@ public class OddEvenn : MonoBehaviour
     IEnumerator Waitttt()
     {
         Debug.Log("basladi");
-        
+        yield return new WaitForSeconds(5);
+
         //theNumb.SetActive(true);
-        
+
         theNumb.GetComponent<Text>().text = "" + theNumber;
-        yield return new WaitForSeconds(10);
+        
         
     }
 

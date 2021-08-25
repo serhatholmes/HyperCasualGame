@@ -45,7 +45,7 @@ public class Esek : MonoBehaviour
         {
             if(forRB==true)
             {
-                transform.DOMoveY(0.9f, 0.2f);
+                transform.DOMoveY(0.5f, 0.2f);
             }
 
             if(dead==true)
@@ -66,7 +66,7 @@ public class Esek : MonoBehaviour
                 forRB = true;
                 Debug.Log("önce");
 
-                if(counter==2)
+                if(counter==3)
                 {
                 Debug.Log("Yıkılmış olması lazım");
                 //particleee.particleee();
@@ -81,9 +81,10 @@ public class Esek : MonoBehaviour
 
     IEnumerator DownDead()
     {
-        yield return new WaitForSeconds(4);
+        
         forAnim.BlowUp();
-        SceneManager.LoadScene("GameOver");
+        yield return new WaitForSeconds(6);
+        SceneManager.LoadScene("WinScene");
     }
 
 

@@ -522,6 +522,7 @@ MonoBehaviour:
   donuyorum: 0
   powerButton: {fileID: 0}
   bump: 0
+  finish: 0
   isGrounded: 0
 --- !u!114 &3372903667339241382
 MonoBehaviour:

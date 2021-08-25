@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
 
     int chcCount = 0;
     int destroyCount = 0;
-    GameObject[] chcs=new GameObject[10];
+    GameObject[] chcs=new GameObject[8];
 
     public GameObject[] characterPrefabs;
 
@@ -61,7 +61,7 @@ public class Spawner : MonoBehaviour
             destroyCount++;
             Debug.Log("artması lazım");
 
-            if (chcCount == 10)
+            if (chcCount == 8)
             {
                 Debug.Log("Saydı");
                 chcCount = 0;
