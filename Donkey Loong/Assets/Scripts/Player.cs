@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     [SerializeField] public bool jumpMe = false;
 
     private float sinValue = 0f;
-    private float increment = 0.06f;
+    private float increment = 0.07f;
     private bool rotationStopped = false;
     [SerializeField] bool donuyorum = false;
 
@@ -124,19 +124,18 @@ public class Player : MonoBehaviour
             transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 24, 0));
         }
 
-
+        
     }
 
     public void touchAndJump()
     {
+        quiver.SetActive(false);
 
-        
-      
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-7.73f, 0.4f).OnComplete(() =>
+        GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(5f, 20f, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
         {
-                    GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(5f, 20f, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-7.73f, 0.4f).OnComplete(() =>
                         {
-                            
+                            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.05f);
                         });
                 
         });
@@ -155,7 +154,7 @@ public class Player : MonoBehaviour
             //lr.positionCount = 0;
             jumpForce = gm.force;
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.4f);
+            
 
 
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
@@ -164,7 +163,7 @@ public class Player : MonoBehaviour
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(10f, 0.25f).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(1f, 0.1f).OnComplete(() =>
                {
                    GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-15f, 0.4f).OnComplete(() =>
                    {
@@ -188,9 +187,9 @@ public class Player : MonoBehaviour
 
             jumpMe = false;
 
-            
 
-            
+            quiver.SetActive(true);
+
 
             Debug.Log("animasyona girdi");
 
@@ -232,12 +231,12 @@ public class Player : MonoBehaviour
             }
 
         }
-
+        
         else if (other.tag == "Finish" )
         {
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0, 0.4f).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(0, 2, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
             {
-                GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(0, 0, 0), 0.4f,RotateMode.Fast);
+                GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0, 0.4f);
             });
 
             arrow.SetActive(true);
@@ -318,6 +317,12 @@ public class Player : MonoBehaviour
 
             finish++;
 
+            if (finish == 3)
+            {
+                Debug.LogWarning("KAYBETTİN");
+                StartCoroutine(Finish());
+            }
+
             jumpMe = false;
 
             AudioManager.instance.Play("Sit");
@@ -325,10 +330,7 @@ public class Player : MonoBehaviour
             Debug.Log("yere degdi");
             anim1.Play("Dying");
 
-            if(finish==3)
-            {
-                StartCoroutine(Finish());
-            }
+            
 
             
             

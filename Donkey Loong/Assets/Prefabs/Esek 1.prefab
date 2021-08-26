@@ -239,6 +239,7 @@ MonoBehaviour:
   spawning: 0
   smr: {fileID: 0}
   characterPrefabs: []
+  Panel1: {fileID: 0}
 --- !u!114 &338168149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6466,7 +6467,7 @@ PrefabInstance:
     - target: {fileID: 1708543365599868350, guid: 1d2845c72c9fe4f1d9521163e3e07e45,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.2
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 1708543365599868350, guid: 1d2845c72c9fe4f1d9521163e3e07e45,
         type: 3}
@@ -6772,7 +6773,7 @@ PrefabInstance:
     - target: {fileID: 2112338467123499748, guid: 6db36e6601f434ec69cf6d019f5a2fe2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2112338467123499748, guid: 6db36e6601f434ec69cf6d019f5a2fe2,
         type: 3}

@@ -8,13 +8,6 @@ using DG.Tweening;
 public class TouchCounter : MonoBehaviour
 {
 
-    /*
-     * 8 atma hakkı olsun, 3ü dışarı giderse kaybedilsin
-     * eşek yıkılınca biz kazanalım- direkt win ekranı
-     * 
-     * 
-      */
-
     CoinTurn cTurn;
 
     //public ParticleSystem jump;

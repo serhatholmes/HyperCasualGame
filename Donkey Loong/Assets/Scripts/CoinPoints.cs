@@ -46,7 +46,7 @@ public class CoinPoints : MonoBehaviour
             
             Destroy(gameObject);
             Debug.Log("coin");
-            currentCoins += 75;
+            currentCoins += 100;
             PlayerPrefs.SetInt("CoinSystem", currentCoins);
             coinDisplayText.SetText(currentCoins.ToString());
             coinDisplayText.text = " " + currentCoins;

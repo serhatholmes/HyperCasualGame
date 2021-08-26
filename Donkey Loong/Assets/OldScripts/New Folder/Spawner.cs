@@ -28,6 +28,8 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] characterPrefabs;
 
+    public GameObject Panel1;
+
     void Start()
     {
         //smr = GameObject.FindObjectOfType<SkinnedMeshRenderer>();
@@ -67,8 +69,9 @@ public class Spawner : MonoBehaviour
                 chcCount = 0;
                 
             }
-            if (destroyCount == 10)
+            if (destroyCount == 8)
             {
+                StartCoroutine(OpenPanel());
                 SceneManager.LoadScene("GameOver");
             }
 
@@ -90,5 +93,12 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         spawnTrigger = false;
+    }
+
+    IEnumerator OpenPanel()
+    {
+
+        Panel1.SetActive(true);
+        yield return new WaitForSeconds(4);
     }
 }
