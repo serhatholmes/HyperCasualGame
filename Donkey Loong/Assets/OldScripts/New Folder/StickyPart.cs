@@ -38,8 +38,9 @@ public class StickyPart : MonoBehaviour
 
     IEnumerator FreezePlayer()
     {
+        
+        yield return new WaitForSeconds(0.15f);
         anim1.Play("Sitting");
-        yield return new WaitForSeconds(0.1f);
         rb.constraints = RigidbodyConstraints.FreezeAll;
         
         rb.constraints = RigidbodyConstraints.FreezeRotation;

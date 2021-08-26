@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
 
     public Text yıkıldı;
 
+    public bool okUI=false;
+
     [SerializeField] public GameObject canvasObject;
 
     [SerializeField] private Force gm;
@@ -120,6 +122,7 @@ public class Player : MonoBehaviour
         if (donuyorum)
         {
             sinValue += increment;
+            okUI = true;
 
             transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 24, 0));
         }
@@ -131,11 +134,11 @@ public class Player : MonoBehaviour
     {
         quiver.SetActive(false);
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(5f, 20f, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
+        GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(-5f, 22f, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
         {
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-7.73f, 0.4f).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-8f, 0.5f).OnComplete(() =>
                         {
-                            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.05f);
+                            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.2f);
                         });
                 
         });
@@ -163,11 +166,11 @@ public class Player : MonoBehaviour
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(1f, 0.1f).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(4f, 0.15f).OnComplete(() =>
                {
                    GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-15f, 0.4f).OnComplete(() =>
                    {
-                       GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-25.41f, 0.4f).OnComplete(() =>
+                       GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-27.14f, 0.6f).OnComplete(() =>
                        {
                            //GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-8.1f, 0.2f);
                        });
@@ -234,6 +237,8 @@ public class Player : MonoBehaviour
         
         else if (other.tag == "Finish" )
         {
+            okUI = true;
+
             GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(0, 2, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
             {
                 GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0, 0.4f);
@@ -330,13 +335,11 @@ public class Player : MonoBehaviour
             Debug.Log("yere degdi");
             anim1.Play("Dying");
 
-            
 
-            
-            
-            rb.constraints = RigidbodyConstraints.FreezeAll;
 
-            Destroy(gameObject.GetComponent<CapsuleCollider>());
+
+
+            StartCoroutine(Floor());
 
             this.enabled = false;
 
@@ -393,6 +396,13 @@ public class Player : MonoBehaviour
         
     }
 
+    IEnumerator Floor()
+    {
+        yield return new WaitForSeconds(1);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        Destroy(gameObject.GetComponent<CapsuleCollider>());
+    }
 
 
     IEnumerator Wait()

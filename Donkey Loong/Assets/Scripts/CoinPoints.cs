@@ -55,8 +55,8 @@ public class CoinPoints : MonoBehaviour
         }
     }
 
-    public void boughtSkin()
+   /* public void boughtSkin()
     {
         currentCoins = currentCoins - decrs;
-    }
+    } */
 }

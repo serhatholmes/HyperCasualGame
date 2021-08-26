@@ -27,7 +27,7 @@ public class FloorCount : MonoBehaviour
         {
             dead++;
 
-            if(dead==9)
+            if(dead==4)
             {
                 Debug.Log("ölüm başlar");
                 StartCoroutine(StartDeath());
