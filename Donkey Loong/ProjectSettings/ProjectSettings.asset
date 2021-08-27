@@ -124,8 +124,9 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.1.5
-  preloadedAssets: []
+  bundleVersion: 1.1.6
+  preloadedAssets:
+  - {fileID: 11400000, guid: fb31ce8c8516946cb998021af76329ff, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -712,6 +713,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
+    4: KNOT_LOCALIZATION
     7: KNOT_LOCALIZATION
   platformArchitecture: {}
   scriptingBackend: {}

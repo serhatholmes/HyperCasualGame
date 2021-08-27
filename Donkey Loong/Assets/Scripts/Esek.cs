@@ -86,7 +86,7 @@ public class Esek : MonoBehaviour
         
         forAnim.BlowUp();
         PanelOpener();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("WinScene");
     }
 

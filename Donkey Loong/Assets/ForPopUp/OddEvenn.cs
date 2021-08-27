@@ -75,51 +75,74 @@ public class OddEvenn : MonoBehaviour
 
     IEnumerator Waitttt()
     {
+
+        
         theNumber = Random.Range(1, 10);
 
-        theNumber = theNumber % 2;
+        //theNumber = theNumber % 2;
 
 
 
         theNumb.GetComponent<Text>().text = "" + theNumber;
         Debug.Log("basladi");
-        yield return new WaitForSeconds(10);
 
+        
         
 
         theNumb.GetComponent<Text>().text = "" + theNumber;
-        
-        
+
+        yield return new WaitForSeconds(5);
     }
+
+    IEnumerator forWin()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("WinScene");
+    }
+
+    IEnumerator forLoose()
+    {
+
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GameOver");
+    }
+
 
     public void OddButton()
     {
-        
-        if(theNumber % 2 == 1)
+        StartCoroutine(Waitttt());
+
+        if (theNumber % 2 == 1)
         {
-            
-            SceneManager.LoadScene("WinScene");
+
+            StartCoroutine(forWin());
+
         }
 
         else
         {
-            
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(forLoose());
+
         }
+        
     }
 
     public void EvenButton()
     {
-        if(theNumber % 2 == 0)
+        StartCoroutine(Waitttt());
+
+        if (theNumber % 2 == 0)
         {
             
-            SceneManager.LoadScene("WinScene");
+            StartCoroutine(forWin());
         }
 
         else
         {
-            
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(forLoose());
+
         }
     }
+
+   
 }
