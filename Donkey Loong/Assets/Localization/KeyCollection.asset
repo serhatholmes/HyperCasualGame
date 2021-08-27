@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1ff9c661913424893eef705ffbbc73, type: 3}
+  m_Name: KeyCollection
+  m_EditorClassIdentifier: 
+  _keyData:
+  - _key: TestKey
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: Main Menu
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: Stop
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: DoubleScore
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: youwin
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: mute
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: startplay
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: shop
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: options
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: gameover
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: odd
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: even
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: tahminet
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: "aaaeseky\u0131k\u0131ld\u0131"
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: kaybettin8atma
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: kaybettin4yere
+    _metadata:
+      _runtime: []
+      _editor: []
+  - _key: "esekdevrildisenkazand\u0131n"
+    _metadata:
+      _runtime: []
+      _editor: []
+  references:
+    version: 1

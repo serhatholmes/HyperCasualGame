@@ -20,6 +20,8 @@ public class Esek : MonoBehaviour
 
     //float timer = 0;
 
+    public GameObject Panel2;
+
     void Start()
     {
         DOTween.Init();
@@ -83,9 +85,13 @@ public class Esek : MonoBehaviour
     {
         
         forAnim.BlowUp();
-        yield return new WaitForSeconds(6);
+        PanelOpener();
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene("WinScene");
     }
 
-
+    public void PanelOpener()
+    {
+        Panel2.SetActive(true);
+    }
 }

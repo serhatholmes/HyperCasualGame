@@ -43,13 +43,7 @@ public class OddEvenn : MonoBehaviour
 
     public void RandomGenerate ()
     {
-        theNumber = Random.Range(1, 10);
-
-        theNumber = theNumber % 2;
-
         
-
-        theNumb.GetComponent<Text>().text = "" + theNumber;
 
         //randomNumb = theNumber.ToString();
 
@@ -81,10 +75,17 @@ public class OddEvenn : MonoBehaviour
 
     IEnumerator Waitttt()
     {
-        Debug.Log("basladi");
-        yield return new WaitForSeconds(5);
+        theNumber = Random.Range(1, 10);
 
-        //theNumb.SetActive(true);
+        theNumber = theNumber % 2;
+
+
+
+        theNumb.GetComponent<Text>().text = "" + theNumber;
+        Debug.Log("basladi");
+        yield return new WaitForSeconds(10);
+
+        
 
         theNumb.GetComponent<Text>().text = "" + theNumber;
         
@@ -96,13 +97,13 @@ public class OddEvenn : MonoBehaviour
         
         if(theNumber % 2 == 1)
         {
-            StartCoroutine(Waitttt());
+            
             SceneManager.LoadScene("WinScene");
         }
 
         else
         {
-            StartCoroutine(Waitttt());
+            
             SceneManager.LoadScene("GameOver");
         }
     }
@@ -111,13 +112,13 @@ public class OddEvenn : MonoBehaviour
     {
         if(theNumber % 2 == 0)
         {
-            StartCoroutine(Waitttt());
+            
             SceneManager.LoadScene("WinScene");
         }
 
         else
         {
-            StartCoroutine(Waitttt());
+            
             SceneManager.LoadScene("GameOver");
         }
     }
