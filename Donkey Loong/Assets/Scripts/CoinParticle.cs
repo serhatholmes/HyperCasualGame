@@ -17,8 +17,15 @@ public class CoinParticle : MonoBehaviour
         {
            
                 coinParticle.Play();
-                Destroy(gameObject.GetComponent<SphereCollider>());
+            StartCoroutine(coinDeath());
 
         }
+    }
+
+    IEnumerator coinDeath()
+    {
+        yield return new WaitForSeconds(1);
+
+        //Destroy(gameObject);
     }
 }

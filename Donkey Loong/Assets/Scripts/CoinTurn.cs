@@ -27,5 +27,13 @@ public class CoinTurn : MonoBehaviour
         
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Boy")
+        {
+            //Destroy(gameObject);
+        }
+    }
+
+
 }

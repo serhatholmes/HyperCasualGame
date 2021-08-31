@@ -52,7 +52,7 @@ public class HavadaKalmama : MonoBehaviour
     IEnumerator Waiit()
     {
         Debug.Log("havada");
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSeconds(6);
     }
 
 
@@ -60,7 +60,7 @@ public class HavadaKalmama : MonoBehaviour
     {
         if (onAir == true)
         {
-            Thread.Sleep(100);
+            StartCoroutine(Waiit());
             rb.velocity = Vector3.up * 2f + transform.right * 1f;
         }
     }

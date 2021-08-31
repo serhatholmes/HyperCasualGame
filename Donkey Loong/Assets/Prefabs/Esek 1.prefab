@@ -365,14 +365,14 @@ GameObject:
   - component: {fileID: 794021623}
   - component: {fileID: 794021622}
   - component: {fileID: 794021621}
-  - component: {fileID: 1794766144}
+  - component: {fileID: 1231335558}
   m_Layer: 8
   m_Name: GoldTrigger
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &794021620
 Transform:
   m_ObjectHideFlags: 0
@@ -447,7 +447,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9070966, z: 0.8219318}
   m_Center: {x: 0, y: 0.004619506, z: 0.08903462}
---- !u!114 &1794766144
+--- !u!114 &1231335558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinDisplayText: {fileID: 0}
   currentCoins: 0
-  decrs: 100
+  decrs: 125
 --- !u!1 &1291800086
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,11 +552,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 1291800086}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.23295707
-  m_Height: 1.6919409
+  m_Enabled: 0
+  m_Radius: 0.23295705
+  m_Height: 1.7230251
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0.030044315, z: 0.12579083}
+  m_Center: {x: 0.0000000527703, y: 0.059570737, z: 0.12579083}
 --- !u!114 &1291800088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   forRB: 0
+  Panel2: {fileID: 0}
 --- !u!1 &1489439986
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489439986}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0.51}
+  m_LocalPosition: {x: 0, y: 1, z: 0.54}
   m_LocalScale: {x: 1.6942668, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405865383467040824}
@@ -661,11 +662,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 1489439986}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.254444
-  m_Height: 1.5312636
+  m_Height: 1.6299659
   m_Direction: 1
-  m_Center: {x: 0.015377939, y: 0.097961165, z: 0.035149157}
+  m_Center: {x: 0.015377934, y: 0.10484365, z: 0.035149142}
 --- !u!114 &1489439988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,6 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   forRB: 0
+  Panel2: {fileID: 0}
 --- !u!1 &1868726914
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896436663}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.97, z: 0.68}
+  m_LocalPosition: {x: 0, y: 0.97, z: 0.73}
   m_LocalScale: {x: 1.6186, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2788963940581702772}
@@ -879,11 +881,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 1896436663}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.2693111
-  m_Height: 1.564297
+  m_Height: 1.7076321
   m_Direction: 1
-  m_Center: {x: 0.0006790161, y: -0.18587922, z: 0.028412078}
+  m_Center: {x: 0.0006790128, y: -0.17980789, z: 0.028412076}
 --- !u!114 &1896436668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,6 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   forRB: 0
+  Panel2: {fileID: 0}
 --- !u!114 &2129899971834308761
 MonoBehaviour:
   m_ObjectHideFlags: 0

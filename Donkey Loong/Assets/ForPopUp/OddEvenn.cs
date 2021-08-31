@@ -63,10 +63,10 @@ public class OddEvenn : MonoBehaviour
 
    public void WinStiuation()
     {
-        
 
-       
 
+
+        //PlayerPrefs.SetInt("CoinPoints", PlayerPrefs.GetInt("CoinPoints") + 200);
         OpenPanel();
 
     }

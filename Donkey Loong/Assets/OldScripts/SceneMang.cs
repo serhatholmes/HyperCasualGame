@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using EasyUI.Toast;
+using UnityEngine.UI;
 
 public class SceneMang : MonoBehaviour
 {
+    public int currentp;
 
     bool isMute = false;
 
 
- 
+    CoinPoints winPoints;
     
 
     public void ExitButton()
@@ -43,6 +45,7 @@ public class SceneMang : MonoBehaviour
 
     public void Win()
     {
+        PlayerPrefs.SetInt("CoinPoints", PlayerPrefs.GetInt("CoinPoints") + 200);
         SceneManager.LoadScene("WinScene");
     }
 
@@ -90,7 +93,7 @@ public class SceneMang : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //currentp = winPoints.currentCoins;
     }
 
     // Update is called once per frame

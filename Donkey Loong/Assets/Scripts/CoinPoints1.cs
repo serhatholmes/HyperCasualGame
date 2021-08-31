@@ -4,25 +4,29 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class CoinPoints : MonoBehaviour
+public class CoinPoints1 : MonoBehaviour
 {
 
     public Text coinDisplayText;
 
-    public int currentCoins = 0;
+    public int currentCoins1;
 
-    public int decrs = 125;
+    public int decrs = 100;
+
+    CoinPoints CP;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentCoins1 = CP.currentCoins;
+
         //coin sayısını saklamak için
-        if (PlayerPrefs.HasKey("CoinPoints"))
+        if (PlayerPrefs.HasKey("CoinPoints1"))
         {
-            currentCoins = PlayerPrefs.GetInt("CoinPoints");
+            currentCoins1 = PlayerPrefs.GetInt("CoinPoints1");
         }
 
-        coinDisplayText.text = " " + currentCoins;
+        coinDisplayText.text = " " + currentCoins1;
     }
 
     // Update is called once per frame
@@ -38,10 +42,6 @@ public class CoinPoints : MonoBehaviour
         {
             return;
         }
-        /* else if(other.tag != "Donkey")
-        {
-            return;
-        } */
 
 
         //add the score later
@@ -50,25 +50,14 @@ public class CoinPoints : MonoBehaviour
             
             
             Debug.Log("coin");
-            currentCoins += decrs;
-            PlayerPrefs.SetInt("CoinPoints", currentCoins);
+            currentCoins1 += decrs;
+            PlayerPrefs.SetInt("CoinPoints1", currentCoins1);
             
-            coinDisplayText.text = " " + currentCoins;
+            coinDisplayText.text = " " + currentCoins1;
             Destroy(gameObject);
 
 
         }
-        /*
-        else if(other.tag == "Donkey")
-        {
-            Debug.Log("coin");
-            currentCoins += decrs;
-            PlayerPrefs.SetInt("CoinPoints", currentCoins);
-
-            coinDisplayText.text = " " + currentCoins;
-            //Destroy(gameObject);
-        }
-        */
     }
 
    /* public void boughtSkin()
