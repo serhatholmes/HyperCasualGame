@@ -45,7 +45,7 @@ public class SceneMang : MonoBehaviour
 
     public void Win()
     {
-        PlayerPrefs.SetInt("CoinPoints", PlayerPrefs.GetInt("CoinPoints") + 200);
+        
         SceneManager.LoadScene("WinScene");
     }
 
