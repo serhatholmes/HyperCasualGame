@@ -52,13 +52,15 @@ public class Player : MonoBehaviour
 
     public bool okUI=false;
 
+    public bool forArrow2D = false;
+
     [SerializeField] public GameObject canvasObject;
 
     [SerializeField] private Force gm;
     [SerializeField] public bool jumpMe = false;
 
     private float sinValue = 0f;
-    private float increment = 0.07f;
+    private float increment = 0.06f;
     private bool rotationStopped = false;
     [SerializeField] bool donuyorum = false;
 
@@ -206,7 +208,7 @@ public class Player : MonoBehaviour
 
         if(other.tag =="Spawn")
         {
-            
+            forArrow2D = false;
 
             arrow.SetActive(false);
 
@@ -238,6 +240,8 @@ public class Player : MonoBehaviour
         else if (other.tag == "Finish" )
         {
             okUI = true;
+
+            
 
             GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(0, 2, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
             {
@@ -438,4 +442,6 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("GameOver");
         
     }
+
+   
 }

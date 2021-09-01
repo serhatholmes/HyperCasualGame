@@ -18,7 +18,7 @@ public class CoinPoints1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentCoins1 = CP.currentCoins;
+        //currentCoins1 = CP.currentCoins;
 
         //coin sayısını saklamak için
         if (PlayerPrefs.HasKey("CoinPoints1"))
