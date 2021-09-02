@@ -365,14 +365,13 @@ GameObject:
   - component: {fileID: 794021623}
   - component: {fileID: 794021622}
   - component: {fileID: 794021621}
-  - component: {fileID: 1231335558}
   m_Layer: 8
   m_Name: GoldTrigger
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &794021620
 Transform:
   m_ObjectHideFlags: 0
@@ -447,21 +446,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9070966, z: 0.8219318}
   m_Center: {x: 0, y: 0.004619506, z: 0.08903462}
---- !u!114 &1231335558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794021619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a42e77b3b83f8491dabbe84907c4c0a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinDisplayText: {fileID: 0}
-  currentCoins: 0
-  decrs: 125
 --- !u!1 &1291800086
 GameObject:
   m_ObjectHideFlags: 0

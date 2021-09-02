@@ -518,6 +518,7 @@ MonoBehaviour:
   canVibrate: 0
   "y\u0131k\u0131ld\u0131": {fileID: 0}
   okUI: 0
+  forArrow2D: 0
   canvasObject: {fileID: 0}
   gm: {fileID: 0}
   jumpMe: 0

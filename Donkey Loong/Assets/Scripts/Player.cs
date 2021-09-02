@@ -136,20 +136,15 @@ public class Player : MonoBehaviour
     {
         quiver.SetActive(false);
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(-5f, 22f, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
-        {
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-8f, 0.5f).OnComplete(() =>
-                        {
-                            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5, 0.2f);
-                        });
-                
-        });
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5.4f, 0.4f, true);
 
         if (donuyorum)
         {
             donuyorum = false;
             return;
         }
+
+        
 
         jumpMe = true;
 
@@ -159,7 +154,7 @@ public class Player : MonoBehaviour
             //lr.positionCount = 0;
             jumpForce = gm.force;
 
-            
+
 
 
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
@@ -168,19 +163,15 @@ public class Player : MonoBehaviour
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(4f, 0.15f).OnComplete(() =>
-               {
-                   GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-15f, 0.4f).OnComplete(() =>
-                   {
-                       GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-27.14f, 0.6f).OnComplete(() =>
-                       {
-                           //GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-8.1f, 0.2f);
-                       });
 
-                   });
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(10.5f, 0.3f, false).OnComplete(() =>
+            {
+                GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-15f, 0.4f, true).OnComplete(() =>
+                  {
+                      GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-27.62f, 0.3f, true);
+                  });
 
-               });
-
+            });
             
 
 
@@ -208,6 +199,8 @@ public class Player : MonoBehaviour
 
         if(other.tag =="Spawn")
         {
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(11f, 0.4f, true);
+
             forArrow2D = false;
 
             arrow.SetActive(false);
@@ -243,10 +236,7 @@ public class Player : MonoBehaviour
 
             
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(0, 2, 0), 0.05f, RotateMode.Fast).OnComplete(() =>
-            {
-                GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(0, 0.4f);
-            });
+            
 
             arrow.SetActive(true);
 
