@@ -13,7 +13,8 @@ public class SceneMang : MonoBehaviour
 
 
     CoinPoints winPoints;
-    
+
+    //public GameObject panelPause;
 
     public void ExitButton()
     {
@@ -22,7 +23,10 @@ public class SceneMang : MonoBehaviour
 
     public void StartGame()
     {
+        
         SceneManager.LoadScene("Game");
+        Time.timeScale = 1f;
+        
     }
 
     public void Shop()
@@ -54,9 +58,9 @@ public class SceneMang : MonoBehaviour
         SceneManager.LoadScene("Settings");
     }
 
-    public void Dont()
+    public void LooseScene()
     {
-        return;
+        SceneManager.LoadScene("GameOver");
     }
 
     public void printMessage(string message)
@@ -80,20 +84,19 @@ public class SceneMang : MonoBehaviour
         }
     }
 
-    
+
 
 
     // add rewarded and other adds
 
-    public void showAds()
-    {
-        Debug.Log("ADS");
-    }
+
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //currentp = winPoints.currentCoins;
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
+        Screen.autorotateToPortraitUpsideDown = false;
     }
 
     // Update is called once per frame

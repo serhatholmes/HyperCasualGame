@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
     {
         quiver.SetActive(false);
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5.4f, 0.4f, true);
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5.4f, 0.4f, false);
 
         if (donuyorum)
         {
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(10.5f, 0.3f, false).OnComplete(() =>
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(10.5f, 0.2f, false).OnComplete(() =>
             {
                 GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-15f, 0.4f, true).OnComplete(() =>
                   {
@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
 
             force1.SetActive(true);
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-3,1.5f);
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-4.5f,1.5f);
             transform.DOMoveX(0, 2.5f);
 
             yürüdü = true;

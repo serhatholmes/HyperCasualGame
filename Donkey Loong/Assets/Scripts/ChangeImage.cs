@@ -5,22 +5,24 @@ using UnityEngine.UI;
 
 public class ChangeImage : MonoBehaviour
 {
-    /*[SerializeField] public Sprite newButtonImage;
+    [SerializeField] public Sprite newButtonImage;
     public Button button;
+    public Button buttonFX;
 
     public Sprite originalButtonImage;
     private bool isOriginal = true;
-    */
+    
 
-    private bool stepOne = true;
+    
 
-    public Button powering;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        //tekst = powering.GetComponent<Text>();
 
+        button.image.sprite = originalButtonImage;
+        buttonFX.image.sprite = originalButtonImage;
     }
 
     // Update is called once per frame
@@ -31,19 +33,22 @@ public class ChangeImage : MonoBehaviour
 
     public void ChangeButtonImage()
     {
-        
 
-        if (stepOne)
+        if (isOriginal)
         {
-            GameObject.FindGameObjectWithTag("PowerButton").GetComponent<Text>().text = "JUMP!";
-           
+
+            button.image.sprite = newButtonImage;
+            buttonFX.image.sprite = newButtonImage;
+            isOriginal = false;
 
         }
 
         else
         {
-            GameObject.FindGameObjectWithTag("PowerButton").GetComponent<Text>().text = "STOP!";
-            
+
+            button.image.sprite = originalButtonImage;
+            buttonFX.image.sprite = originalButtonImage;
+            isOriginal = true;
 
         }
     }

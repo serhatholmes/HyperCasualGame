@@ -15,7 +15,5 @@ MonoBehaviour:
   _items:
   - _key: TestKey
     _rawText: start game
-  - _key: Main Menu
-    _rawText: Main Menu
   - _key: youwin
     _rawText: You Won!

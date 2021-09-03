@@ -17,10 +17,6 @@ MonoBehaviour:
     _metadata:
       _runtime: []
       _editor: []
-  - _key: Main Menu
-    _metadata:
-      _runtime: []
-      _editor: []
   - _key: Stop
     _metadata:
       _runtime: []
@@ -30,10 +26,6 @@ MonoBehaviour:
       _runtime: []
       _editor: []
   - _key: youwin
-    _metadata:
-      _runtime: []
-      _editor: []
-  - _key: mute
     _metadata:
       _runtime: []
       _editor: []

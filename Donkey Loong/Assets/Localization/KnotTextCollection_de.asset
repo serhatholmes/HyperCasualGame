@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: KnotTextCollection_de
   m_EditorClassIdentifier: 
   _items:
-  - _key: Main Menu
-    _rawText: "Hauptmen\xFC"
   - _key: youwin
     _rawText: Du hast gewonnen!

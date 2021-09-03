@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 
 public class CharacterChanging : MonoBehaviour
 {
     
-    public Text lockedText1;
+    public TMPro.TextMeshProUGUI lockedText1;
     private GameObject[] characterList;
     private int index=0;
 
@@ -20,7 +20,7 @@ public class CharacterChanging : MonoBehaviour
 
     void Start()
     {
-        
+        lockedText1 = gameObject.GetComponent<TextMeshProUGUI>();
         
         //Text text = coinText.GetComponent<Text>();
         //text.text = coin;
@@ -85,7 +85,7 @@ public class CharacterChanging : MonoBehaviour
 
     public void ConfirmButton()
     {
-        lockedText1.text = "Unlocked";
+        //lockedText1.text = "UNLOCKED";
         //pointDec.boughtSkin();
         PlayerPrefs.SetInt("CharacterSelected", index);
 

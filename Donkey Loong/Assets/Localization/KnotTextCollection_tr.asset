@@ -15,7 +15,5 @@ MonoBehaviour:
   _items:
   - _key: TestKey
     _rawText: "oyuna ba\u015Fla"
-  - _key: Main Menu
-    _rawText: "Ana Men\xFC"
   - _key: youwin
     _rawText: "Kazand\u0131n!"

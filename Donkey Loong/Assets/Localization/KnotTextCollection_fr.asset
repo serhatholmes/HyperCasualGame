@@ -15,7 +15,5 @@ MonoBehaviour:
   _items:
   - _key: TestKey
     _rawText: "d\xE9marrer jeu"
-  - _key: Main Menu
-    _rawText: Menu Principal
   - _key: youwin
     _rawText: "Tu as gagn\xE9!"
