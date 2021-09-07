@@ -6,6 +6,8 @@ public class Sound
 {
     public string name;
 
+    public enum AudioTypes { SoundFX, Music }
+    public AudioTypes audioType;
 
 
     public AudioClip clip;

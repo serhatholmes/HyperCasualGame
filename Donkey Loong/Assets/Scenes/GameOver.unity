@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 549218093}
   - component: {fileID: 549218092}
   m_Layer: 5
-  m_Name: Rewarded Ads (1)
+  m_Name: removeads
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: remove ad
+  m_text: remove ads
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 8d34560b6d49c4469b2174ccd34ae34b,

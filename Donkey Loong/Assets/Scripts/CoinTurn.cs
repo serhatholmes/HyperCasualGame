@@ -31,7 +31,7 @@ public class CoinTurn : MonoBehaviour
     {
         if(other.tag == "Boy")
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 

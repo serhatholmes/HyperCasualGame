@@ -50,7 +50,7 @@ public class EsekAnim : MonoBehaviour
         rb.transform.DOMoveX(-2, 0.5f);
         rb.velocity = Vector3.up * 1.5f;
         anim2.Play("GirlFall");
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 0), 0.3f, true);
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(-1.71f, 4.6f, 1f), 0.3f, true);
         
     }
 

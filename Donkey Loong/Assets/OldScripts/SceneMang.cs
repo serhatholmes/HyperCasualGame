@@ -84,8 +84,7 @@ public class SceneMang : MonoBehaviour
         }
     }
 
-
-
+   
 
     // add rewarded and other adds
 

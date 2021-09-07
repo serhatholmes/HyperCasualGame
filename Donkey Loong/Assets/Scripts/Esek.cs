@@ -22,6 +22,8 @@ public class Esek : MonoBehaviour
 
     public GameObject Panel2;
 
+    public GameObject panelGamePlay;
+
     void Start()
     {
         DOTween.Init();
@@ -93,5 +95,6 @@ public class Esek : MonoBehaviour
     public void PanelOpener()
     {
         Panel2.SetActive(true);
+        panelGamePlay.SetActive(false);
     }
 }

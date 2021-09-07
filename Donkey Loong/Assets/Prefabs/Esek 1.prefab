@@ -556,6 +556,7 @@ MonoBehaviour:
   dead: 0
   forRB: 0
   Panel2: {fileID: 0}
+  panelGamePlay: {fileID: 0}
 --- !u!1 &1489439986
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +667,7 @@ MonoBehaviour:
   dead: 0
   forRB: 0
   Panel2: {fileID: 0}
+  panelGamePlay: {fileID: 0}
 --- !u!1 &1868726914
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +887,7 @@ MonoBehaviour:
   dead: 0
   forRB: 0
   Panel2: {fileID: 0}
+  panelGamePlay: {fileID: 0}
 --- !u!114 &2129899971834308761
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CoinPoints : MonoBehaviour
 {
 
-    public Text coinDisplayText;
+    public TextMeshProUGUI coinDisplayText;
 
     public int currentCoins = 0;
 
@@ -16,13 +16,15 @@ public class CoinPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coinDisplayText = GetComponent<TextMeshProUGUI>();
+
         //coin sayısını saklamak için
         if (PlayerPrefs.HasKey("CoinPoints"))
         {
             currentCoins = PlayerPrefs.GetInt("CoinPoints");
         }
 
-        coinDisplayText.text = " " + currentCoins;
+        coinDisplayText.text = " " + currentCoins.ToString();
     }
 
     // Update is called once per frame

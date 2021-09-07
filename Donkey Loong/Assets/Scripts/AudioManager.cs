@@ -2,9 +2,12 @@
 using UnityEngine;
 using System;
 
+
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+
+    public bool isMusicMute=false;
 
     public static AudioManager instance;
 
@@ -48,5 +51,18 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    public void MuteMusicOnly()
+
+    {
+       if(isMusicMute = false)
+        {
+            
+        }
+        else
+        {
+
+        }
     }
 }

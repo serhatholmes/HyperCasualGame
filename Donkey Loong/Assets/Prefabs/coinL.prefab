@@ -4818,4 +4818,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinDisplayText: {fileID: 0}
   currentCoins: 0
-  decrs: 125
+  decrs: 175

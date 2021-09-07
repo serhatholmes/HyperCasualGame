@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             sinValue += increment;
             okUI = true;
 
-            transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 24, 0));
+            transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
         }
 
         

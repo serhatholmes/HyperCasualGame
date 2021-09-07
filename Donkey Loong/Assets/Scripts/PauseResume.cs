@@ -19,9 +19,15 @@ public class PauseResume : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isTime==true)
+        if (isTime == true)
         {
             Time.timeScale = 0f;
+        }
+
+        else if (isTime == false)
+
+        {
+            Time.timeScale = 1f;
         }
     }
 
@@ -38,9 +44,11 @@ public class PauseResume : MonoBehaviour
 
     public void resumeButton()
     {
+        isTime = false;
         panelPause.SetActive(false);
         panelGamePlay.SetActive(true);
         AudioListener.volume = 1f;
         Time.timeScale = 1f;
+
     }
 }

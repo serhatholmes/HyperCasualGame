@@ -26,6 +26,6 @@ public class CoinParticle : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

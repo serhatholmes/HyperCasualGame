@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
-
+using TMPro;
 
 public class OddEvenn : MonoBehaviour
 {
@@ -18,18 +18,22 @@ public class OddEvenn : MonoBehaviour
 
     public Button evenButton;
 
-    public GameObject theNumb;
+    public TextMeshProUGUI theNumb;
 
     public GameObject Panel;
+
+    public GameObject panelGamePlay;
 
     public bool temp = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        theNumb = GetComponent<TextMeshProUGUI>();
         //theNumb.SetActive(false);
 
         DOTween.Init();
+        Time.timeScale = 0f;
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class OddEvenn : MonoBehaviour
     public void OpenPanel()
     {
         Panel.SetActive(true);
-
+        panelGamePlay.SetActive(false);
         
     }
 
@@ -83,14 +87,13 @@ public class OddEvenn : MonoBehaviour
 
 
 
-        theNumb.GetComponent<Text>().text = "" + theNumber;
+        theNumb.text = "Skor: " + theNumb.ToString();
+
+
         Debug.Log("basladi");
 
         
-        
-
-        theNumb.GetComponent<Text>().text = "" + theNumber;
-
+       
         yield return new WaitForSeconds(5);
     }
 
