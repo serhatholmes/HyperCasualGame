@@ -10,7 +10,11 @@ public class Force : MonoBehaviour
     public float force;
     [SerializeField] TMPro.TextMeshProUGUI force_txt;
     //[SerializeField] TMPro.TextMeshProUGUI score_txt;
-   
+
+    public Slider slider;
+    public Color low;
+    public Color High;
+    public Vector3 Offset; 
 
     void Start()
     {
@@ -35,5 +39,8 @@ public class Force : MonoBehaviour
         //score_txt.text = score.ToString();
     }
 
-    
+    public void SetForce(float force,float maxForce)
+    {
+
+    }
 }
