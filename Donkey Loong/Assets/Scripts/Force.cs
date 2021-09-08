@@ -28,6 +28,7 @@ public class Force : MonoBehaviour
         var force_string = "";
         for (int i=0; i<Mathf.FloorToInt(force); i++)
         {
+            //buraya slider gelecek
             force_string += "I";
         }
         force_txt.text = force_string;

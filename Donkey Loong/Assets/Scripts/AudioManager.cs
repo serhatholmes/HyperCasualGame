@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
-
+    // efektleri değil sadece müziği nasıl kapatabilrm
     public void MuteMusicOnly()
 
     {

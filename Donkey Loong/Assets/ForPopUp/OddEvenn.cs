@@ -18,7 +18,7 @@ public class OddEvenn : MonoBehaviour
 
     public Button evenButton;
 
-    public TextMeshProUGUI theNumb;
+    public TMP_Text theNumb;
 
     public GameObject Panel;
 
@@ -29,7 +29,7 @@ public class OddEvenn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        theNumb = GetComponent<TextMeshProUGUI>();
+        var theNumb = GetComponent<TMP_Text>();
         //theNumb.SetActive(false);
 
         DOTween.Init();

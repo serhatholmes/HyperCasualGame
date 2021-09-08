@@ -84,6 +84,15 @@ public class SceneMang : MonoBehaviour
         }
     }
 
+    public void playRewardedAds()
+    {
+
+    }
+
+    public void removeADS()
+    {
+
+    }
    
 
     // add rewarded and other adds

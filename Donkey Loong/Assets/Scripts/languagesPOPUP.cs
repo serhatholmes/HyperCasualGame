@@ -18,4 +18,16 @@ public class languagesPOPUP : MonoBehaviour
     {
         
     }
+
+    public void backButton()
+    {
+        panelLang.SetActive(false);
+        panelOptions.SetActive(true);
+    }
+
+    public void langButton()
+    {
+        panelLang.SetActive(true);
+        panelOptions.SetActive(false);
+    }
 }
