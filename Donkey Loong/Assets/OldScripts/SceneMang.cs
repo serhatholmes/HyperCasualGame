@@ -10,6 +10,7 @@ public class SceneMang : MonoBehaviour
     public int currentp;
 
     bool isMute = false;
+    bool isMusicMute = false;
 
 
     CoinPoints winPoints;
@@ -68,17 +69,46 @@ public class SceneMang : MonoBehaviour
         Toast.Show(message, 0.7f);
     }
 
+    public void MuteMusicOnly()
+    {
+        isMusicMute = !isMusicMute;
+        if (isMusicMute)
+        {
+            var audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+            var a = audioManager.GetComponents<AudioSource>();
+            foreach (var s in a)
+            {
+                if (s.clip.name == "Theme")
+                {
+                    s.mute = true;
+                }
+            }
+        }
+        else
+        {
+            var audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+            var a = audioManager.GetComponents<AudioSource>();
+            foreach (var s in a)
+            {
+                if (s.clip.name == "Theme")
+                {
+                    s.mute = false;
+                }
+            }
+        }
+    }
+
     public void MusicMute()
     {
         if(isMute==false)
         {
-            Debug.Log("Music is ON");
+            Debug.Log("Music is OFF");
             AudioListener.volume = 0;
             isMute = true;
         }
         else
         {
-            Debug.Log("Music is OFF");
+            Debug.Log("Music is ON");
             AudioListener.volume = 1;
             isMute = false;
         }

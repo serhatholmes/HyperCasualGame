@@ -46,7 +46,9 @@ public class Player : MonoBehaviour
 
     //GameObject camera1;
 
-    GameObject force1;
+    [SerializeField] GameObject force1;
+    [SerializeField] GameObject skinObject;
+    [SerializeField] List<Mesh> skins;
 
     public Text yıkıldı;
 
@@ -60,7 +62,7 @@ public class Player : MonoBehaviour
     [SerializeField] public bool jumpMe = false;
 
     private float sinValue = 0f;
-    private float increment = 0.06f;
+    private float increment = 2f;
     private bool rotationStopped = false;
     [SerializeField] bool donuyorum = false;
 
@@ -74,14 +76,15 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        
+        powerButton = GameObject.FindGameObjectWithTag("PowerButton").GetComponent<Button>();
+        Debug.Log(skinObject.GetComponent<SkinnedMeshRenderer>().name);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         DOTween.Init();
-        powerButton = GameObject.FindGameObjectWithTag("PowerButton").GetComponent<Button>();
+
         powerButton.onClick.RemoveAllListeners();
         powerButton.onClick.AddListener(touchAndJump);
 
@@ -118,12 +121,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            skinObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = skins[Random.Range(0, skins.Count)];
+        }
+
         positions[0] = transform.position;
         positions[1] = transform.position + transform.forward * 5;
         //lr.SetPositions(positions);
         if (donuyorum)
         {
-            sinValue += increment;
+            sinValue += increment * Time.deltaTime;
             okUI = true;
 
             transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
@@ -141,6 +149,7 @@ public class Player : MonoBehaviour
         if (donuyorum)
         {
             donuyorum = false;
+            StartCoroutine(ButtonHider(1));
             return;
         }
 
@@ -153,9 +162,6 @@ public class Player : MonoBehaviour
 
             //lr.positionCount = 0;
             jumpForce = gm.force;
-
-
-
 
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
             anim1.Play("JumpBoy");
@@ -173,26 +179,28 @@ public class Player : MonoBehaviour
 
             });
             
-
-
             force1.SetActive(false);
 
             AudioManager.instance.Play("Jump");
 
-            
-
             jumpMe = false;
 
-
             quiver.SetActive(true);
-
+            StartCoroutine(ButtonHider(1.5f));
 
             Debug.Log("animasyona girdi");
-
 
         }
         
     }
+
+    private IEnumerator ButtonHider(float duration)
+    {
+        powerButton.enabled = false;
+        yield return new WaitForSeconds(duration);
+        powerButton.enabled = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         bool yürüdü = false;

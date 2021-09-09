@@ -33,6 +33,7 @@ TagManager:
   - Camera
   - Force
   - Try
+  - AudioManager
   layers:
   - Default
   - TransparentFX

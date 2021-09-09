@@ -2,7 +2,7 @@
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEditor;
-using UnityEditor.iOS.Xcode;
+//using UnityEditor.iOS.Xcode;
 using System.IO;
 
 public class ExcemptFromEncryption : IPostprocessBuildWithReport {
@@ -15,13 +15,13 @@ public class ExcemptFromEncryption : IPostprocessBuildWithReport {
         {
             string plistPath = report.summary.outputPath + "/Info.plist";
 
-            PlistDocument plist = new PlistDocument();
-            plist.ReadFromString(File.ReadAllText(plistPath));
+            //PlistDocument plist = new PlistDocument();
+            //plist.ReadFromString(File.ReadAllText(plistPath));
 
-            PlistElementDict rootDict = plist.root;
-            rootDict.SetBoolean("ITSAppUsesNonExemptEncryption", false);
+            //PlistElementDict rootDict = plist.root;
+            //rootDict.SetBoolean("ITSAppUsesNonExemptEncryption", false);
 
-            File.WriteAllText(plistPath, plist.WriteToString());
+            //File.WriteAllText(plistPath, plist.WriteToString());
         }
     }
 }

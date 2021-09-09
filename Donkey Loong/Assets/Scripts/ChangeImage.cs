@@ -38,20 +38,15 @@ public class ChangeImage : MonoBehaviour
 
         if (isOriginal)
         {
-
             button.image.sprite = newButtonImage;
-            
             isOriginal = false;
-
         }
 
         else
         {
-
             button.image.sprite = originalButtonImage;
             buttonFX.image.sprite = originalButtonImage;
             isOriginal = true;
-
         }
     }
 
@@ -59,20 +54,14 @@ public class ChangeImage : MonoBehaviour
     {
         if (isOriginal1)
         {
-
-            
             buttonFX.image.sprite = newButtonImage1;
             isOriginal1 = false;
-
         }
 
         else
         {
-
-            
             buttonFX.image.sprite = originalButtonImage1;
             isOriginal1= true;
-
         }
     }
 }

@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public bool isMusicMute=false;
 
     public static AudioManager instance;
+    private AudioSource themeSource;
 
     void Awake()
     {
@@ -39,6 +40,15 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         Play("Theme");
+        var a = GetComponents<AudioSource>();
+        foreach (var s in a)
+        {
+            if (s.clip.name == "Theme")
+            {
+                themeSource = s;
+                break;
+            }
+        }
     }
 
 
@@ -54,15 +64,15 @@ public class AudioManager : MonoBehaviour
     }
     // efektleri değil sadece müziği nasıl kapatabilrm
     public void MuteMusicOnly()
-
     {
-       if(isMusicMute = false)
+        isMusicMute = !isMusicMute;
+        if (isMusicMute)
         {
-            
+            themeSource.mute = true;
         }
         else
         {
-
+            themeSource.mute = false;
         }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1149546145006390069}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,50 +45,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Sit
+    audioType: 0
     clip: {fileID: 8300000, guid: acfe91acf2fc947fbb103a0044aed246, type: 3}
     volume: 0.691
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Jump
+    audioType: 0
     clip: {fileID: 8300000, guid: 0322ca1a5d261408792f77b9d3529cb7, type: 3}
     volume: 0.535
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Theme
+    audioType: 0
     clip: {fileID: 8300000, guid: 9bf2b7f8df81a46f99b419e7f03dc539, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Clap
+    audioType: 0
     clip: {fileID: 8300000, guid: 9a9051c97b58f44ef85eda0b31f2666d, type: 3}
     volume: 0.644
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Button
+    audioType: 0
     clip: {fileID: 8300000, guid: c2f196514afcc41e1a62479798b1e554, type: 3}
     volume: 0.46
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Button1
+    audioType: 0
     clip: {fileID: 8300000, guid: 1a77a7be0e13e4eb79b9831bca45b344, type: 3}
     volume: 0.46
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Button2
+    audioType: 0
     clip: {fileID: 8300000, guid: a66d281fa45544d05b20291894ffc316, type: 3}
     volume: 0.46
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Button3
+    audioType: 0
     clip: {fileID: 8300000, guid: 9eca6b730517743f6beb2c9ea776585f, type: 3}
     volume: 0.46
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  isMusicMute: 0
