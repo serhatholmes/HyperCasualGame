@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
   
 
     [SerializeField] Transform startPos;
-    [SerializeField] GameObject obj;
+    [SerializeField] List<GameObject> objects;
+    [SerializeField] int objIndex;
     [SerializeField] bool spawning = false;
 
     public SkinnedMeshRenderer smr;
@@ -24,7 +25,7 @@ public class Spawner : MonoBehaviour
 
     int chcCount = 0;
     int destroyCount = 0;
-    GameObject[] chcs=new GameObject[8];
+    GameObject[] chcs =new GameObject[8];
 
     public GameObject[] characterPrefabs;
 
@@ -32,6 +33,8 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
+        objIndex = PlayerPrefs.GetInt("CharacterSelected");
+        SpawnJumper();
         //smr = GameObject.FindObjectOfType<SkinnedMeshRenderer>();
         //char1 = gameObject.GetComponent<SkinnedMeshRenderer>().materials;
 
@@ -52,12 +55,13 @@ public class Spawner : MonoBehaviour
 
     public void SpawnJumper()
     {
+        Debug.Log("1");
         if (!spawnTrigger)
         {
-
+            Debug.Log("2");
             spawnTrigger = true;
             StartCoroutine(spawnTriggerResetter());
-            var character = Instantiate(obj, startPos.position, Quaternion.identity);
+            var character = Instantiate(objects[objIndex], startPos.position, Quaternion.identity);
             //character = player1.GetComponent<SkinnedMeshRenderer>();
             chcCount++;
             destroyCount++;
@@ -91,6 +95,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator spawnTriggerResetter()
     {
+        Debug.Log("3");
         yield return new WaitForSeconds(2);
         spawnTrigger = false;
     }

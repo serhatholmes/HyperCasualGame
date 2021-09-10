@@ -34,6 +34,7 @@ TagManager:
   - Force
   - Try
   - AudioManager
+  - RotatingArrow
   layers:
   - Default
   - TransparentFX

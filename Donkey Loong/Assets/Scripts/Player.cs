@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     CoinTurn cnTurn;
 
-    GameObject arrow;
+    //GameObject arrow;
 
     GameObject quiver;
 
@@ -50,9 +50,11 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject skinObject;
     [SerializeField] List<Mesh> skins;
 
+    
+
     public Text yıkıldı;
 
-    public bool okUI=false;
+    
 
     public bool forArrow2D = false;
 
@@ -85,6 +87,8 @@ public class Player : MonoBehaviour
     {
         DOTween.Init();
 
+        GameObject.FindGameObjectWithTag("RotatingArrow").GetComponent<RotateArrow>().StartRotating();
+
         powerButton.onClick.RemoveAllListeners();
         powerButton.onClick.AddListener(touchAndJump);
 
@@ -95,14 +99,15 @@ public class Player : MonoBehaviour
 
         //aSequence = DOTween.Sequence();
 
-        GetComponent<Animator>();
+        //GetComponent<Animator>();
+        //rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
 
         spawner = FindObjectOfType<Spawner>();
 
         gm = FindObjectOfType<Force>();
 
-        arrow = GameObject.FindGameObjectWithTag("Arrow");
+        //arrow = GameObject.FindGameObjectWithTag("Arrow");
 
         quiver = GameObject.FindGameObjectWithTag("Quiver");
 
@@ -132,9 +137,11 @@ public class Player : MonoBehaviour
         if (donuyorum)
         {
             sinValue += increment * Time.deltaTime;
-            okUI = true;
+            
 
-            transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
+            //transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
+            var rotatingArrow = GameObject.FindGameObjectWithTag("RotatingArrow").transform.localRotation;
+            transform.localRotation = Quaternion.Euler(new Vector3(this.transform.localRotation.x, rotatingArrow.z * -100f, this.transform.localRotation.z));
         }
 
         
@@ -144,11 +151,14 @@ public class Player : MonoBehaviour
     {
         quiver.SetActive(false);
 
+        
+
         GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5.4f, 0.4f, false);
 
         if (donuyorum)
         {
             donuyorum = false;
+            GameObject.FindGameObjectWithTag("RotatingArrow").GetComponent<RotateArrow>().StopRotating();
             StartCoroutine(ButtonHider(1));
             return;
         }
@@ -179,7 +189,8 @@ public class Player : MonoBehaviour
 
             });
             
-            force1.SetActive(false);
+            //force1.SetActive(false);
+            
 
             AudioManager.instance.Play("Jump");
 
@@ -197,8 +208,11 @@ public class Player : MonoBehaviour
     private IEnumerator ButtonHider(float duration)
     {
         powerButton.enabled = false;
+
         yield return new WaitForSeconds(duration);
         powerButton.enabled = true;
+        
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -210,8 +224,8 @@ public class Player : MonoBehaviour
             GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(11f, 0.4f, true);
 
             forArrow2D = false;
-
-            arrow.SetActive(false);
+            
+            
 
             quiver.SetActive(false);
 
@@ -221,6 +235,8 @@ public class Player : MonoBehaviour
 
             GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-4.5f,1.5f);
             transform.DOMoveX(0, 2.5f);
+
+            
 
             yürüdü = true;
             if (yürüdü == true)
@@ -240,13 +256,8 @@ public class Player : MonoBehaviour
         
         else if (other.tag == "Finish" )
         {
-            okUI = true;
-
             
 
-            
-
-            arrow.SetActive(true);
 
             quiver.SetActive(true);
 
@@ -277,7 +288,7 @@ public class Player : MonoBehaviour
         {
             Destroy(GameObject.FindWithTag("Boy"));
             Debug.Log("destroyedd");
-            arrow.SetActive(false);
+            
             Destroy(gameObject.GetComponent<CapsuleCollider>());
             spawner.SpawnJumper();
 

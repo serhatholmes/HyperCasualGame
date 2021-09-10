@@ -9,8 +9,8 @@ public class CharacterChanging : MonoBehaviour
 {
     
     public TMPro.TextMeshProUGUI lockedText1;
-    private GameObject[] characterList;
-    private int index=0;
+    [SerializeField] private GameObject[] characterList;
+    private int index=0; 
 
     CoinPoints pointDec;
     public int decrease = 100;
@@ -47,7 +47,7 @@ public class CharacterChanging : MonoBehaviour
                 characterList[index].SetActive(true); 
         
     }
-
+    
     void Update()
     {
         
@@ -87,6 +87,7 @@ public class CharacterChanging : MonoBehaviour
     {
         //lockedText1.text = "UNLOCKED";
         //pointDec.boughtSkin();
+        Debug.Log("Selected");
         PlayerPrefs.SetInt("CharacterSelected", index);
 
 

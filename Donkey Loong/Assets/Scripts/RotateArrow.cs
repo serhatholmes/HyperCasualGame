@@ -5,10 +5,10 @@ using UnityEngine;
 public class RotateArrow : MonoBehaviour
 {
     private float sinValue = 0f;
-    private float increment = 0.07f;
+    private float increment = 2f;
     [SerializeField] bool donuyorum = true;
 
-    Player forOKUI;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +22,20 @@ public class RotateArrow : MonoBehaviour
         //if (forOKUI.okUI==true) {
             if (donuyorum)
             {
-                sinValue += increment;
+                sinValue += increment * Time.deltaTime;
 
                 transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Sin(sinValue) * 24));
             }
        // }
+    }
+
+    public void StopRotating()
+    {
+        increment = 0;
+    }
+
+    public void StartRotating()
+    {
+        increment = 2f;
     }
 }
