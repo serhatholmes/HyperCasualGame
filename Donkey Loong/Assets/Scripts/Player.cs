@@ -277,6 +277,7 @@ public class Player : MonoBehaviour
         {
             Destroy(GameObject.FindWithTag("Boy"));
             Debug.Log("destroyedd");
+            arrow.SetActive(false);
             Destroy(gameObject.GetComponent<CapsuleCollider>());
             spawner.SpawnJumper();
 

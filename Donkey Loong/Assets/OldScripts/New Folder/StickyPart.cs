@@ -39,11 +39,13 @@ public class StickyPart : MonoBehaviour
     IEnumerator FreezePlayer()
     {
         
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.2f);
         anim1.Play("Sitting");
         rb.constraints = RigidbodyConstraints.FreezeAll;
         
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        
      }
 
 }
