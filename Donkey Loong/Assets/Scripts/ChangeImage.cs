@@ -24,7 +24,7 @@ public class ChangeImage : MonoBehaviour
     {
 
         
-        buttonFX.image.sprite = originalButtonImage1;
+        //buttonFX.image.sprite = originalButtonImage1;
     }
 
     // Update is called once per frame

@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientCol: 0.037
+    - _AmbientCol: 0.044
     - _Clipped: 0
     - _ColBright: 0
     - _ColIntense: 1
@@ -40,5 +40,5 @@ Material:
     - _Steps: 2.4
     - _StpSmooth: 0.668
     m_Colors:
-    - _Color: {r: 0.2109983, g: 0.5377358, b: 0.17501779, a: 1}
+    - _Color: {r: 0.12137623, g: 0.5283019, b: 0.07725169, a: 1}
     - _ShnColor: {r: 1, g: 1, b: 0, a: 1}

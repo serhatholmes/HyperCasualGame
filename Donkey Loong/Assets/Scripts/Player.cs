@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 
     CoinTurn cnTurn;
 
+    CoinPoints cp;
+
     //GameObject arrow;
 
     GameObject quiver;
@@ -106,6 +108,8 @@ public class Player : MonoBehaviour
         spawner = FindObjectOfType<Spawner>();
 
         gm = FindObjectOfType<Force>();
+
+        cp = FindObjectOfType<CoinPoints>();
 
         //arrow = GameObject.FindGameObjectWithTag("Arrow");
 
@@ -328,8 +332,22 @@ public class Player : MonoBehaviour
             
         }
 
+        else if(other.tag=="Coin")
+        {
+            Debug.Log("serhat");
+            Debug.Log("ÇARPTIIII" + other.transform.name);
+            cp.coinIncrease();
+            if (other.transform.name != "GoldTrigger")
+            {
+                Destroy(other.gameObject);
+            }
+            
+        }
+
         else if(other.tag == "Floor")
         {
+
+            particlee.particleee();
             force1.SetActive(true);
 
             spawner.SpawnJumper();
@@ -357,6 +375,11 @@ public class Player : MonoBehaviour
 
             this.enabled = false;
 
+        }
+
+        else if(other.tag== "Freeze")
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
         else if(other.tag == "Boy")

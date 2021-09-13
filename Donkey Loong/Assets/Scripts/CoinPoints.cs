@@ -6,75 +6,74 @@ using UnityEngine.UI;
 
 public class CoinPoints : MonoBehaviour
 {
+    public int coin = 0;
 
-    public TextMeshProUGUI coinDisplayText;
+    [SerializeField] TMP_Text currencyUI;
 
-    public int currentCoins = 0;
+    public int increment = 125;
 
-    public int decrs = 125;
+    public bool destroy1 = false;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        currencyUI = GameObject.FindGameObjectWithTag("GoldScore").GetComponent<TMP_Text>();
+    }
+
     void Start()
     {
-        coinDisplayText = GetComponent<TextMeshProUGUI>();
-
-        //coin sayısını saklamak için
-        if (PlayerPrefs.HasKey("CoinPoints"))
+        if (PlayerPrefs.HasKey("Coins"))
         {
-            currentCoins = PlayerPrefs.GetInt("CoinPoints");
+            coin = PlayerPrefs.GetInt("Coins");
+            currencyUI.text = " " + coin.ToString();
         }
 
-        coinDisplayText.text = " " + currentCoins.ToString();
+        //currencyUI =
+
+        
+        //coinParticle = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
+        PlayerPrefs.Save();
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //check that object
-        if (other.tag != "Boy")
+        if (destroy1 == true)
         {
-            return;
-        }
-        /* else if(other.tag != "Donkey")
-        {
-            return;
-        } */
-
-
-        //add the score later
-        else if (other.tag == "Boy")
-        {
-            
-            
-            Debug.Log("coin");
-            currentCoins += decrs;
-            PlayerPrefs.SetInt("CoinPoints", currentCoins);
-            
-            coinDisplayText.text = " " + currentCoins;
             Destroy(gameObject);
-
-
         }
-        /*
-        else if(other.tag == "Donkey")
-        {
-            Debug.Log("coin");
-            currentCoins += decrs;
-            PlayerPrefs.SetInt("CoinPoints", currentCoins);
-
-            coinDisplayText.text = " " + currentCoins;
-            //Destroy(gameObject);
-        }
-        */
     }
 
-   /* public void boughtSkin()
+
+    public void coinIncrease()
     {
-        currentCoins = currentCoins - decrs;
-    } */
+        Debug.Log("coinarttı");
+        coin = PlayerPrefs.GetInt("Coins") + 125;
+
+        PlayerPrefs.SetInt("Coins", coin);
+        //coinParticle.Play();
+
+        currencyUI.text = " " + coin.ToString();
+
+       // Destroy(this.gameObject);
+
+    }  
+
+    
+    
+
+    public void buySkinButton()
+    {
+        coin -= 1000;
+    }
+
+    IEnumerator coinDeath()
+    {
+        yield return new WaitForSeconds(1);
+
+        Destroy(gameObject);
+    }
+
+
 }

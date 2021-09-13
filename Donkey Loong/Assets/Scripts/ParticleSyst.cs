@@ -20,6 +20,7 @@ public class ParticleSyst : MonoBehaviour
         {
             sitPart.Play();
         }
+
     }
 
     void buttonParticle()

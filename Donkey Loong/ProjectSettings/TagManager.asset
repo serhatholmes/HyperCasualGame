@@ -35,6 +35,8 @@ TagManager:
   - Try
   - AudioManager
   - RotatingArrow
+  - Freeze
+  - GoldScore
   layers:
   - Default
   - TransparentFX

@@ -20,15 +20,24 @@ public class Force : MonoBehaviour
 
     void Start()
     {
-        sliderMin = slider.minValue;
-        sliderMax = slider.maxValue;
+        if (slider != null)
+        {
+            sliderMin = slider.minValue;
+            sliderMax = slider.maxValue;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         force = sliderMin + Mathf.PingPong(Time.time * sliderIncrement, sliderMax-sliderMin);
-        slider.value = force;
+
+        if (slider != null)
+        {
+            slider.value = force;
+        }
+        
     }
 
     public void UpdateScore()
