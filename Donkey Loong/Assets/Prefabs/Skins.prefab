@@ -142,7 +142,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Try
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 937682533, guid: 08cb10c85ddfabd428f9dc82bceea5f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 08cb10c85ddfabd428f9dc82bceea5f1, type: 3}
 --- !u!4 &7793604582421641126 stripped
 Transform:
@@ -322,7 +323,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pirat
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1746859134, guid: d7c8b8ade2b14a24fad2a42309db110e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d7c8b8ade2b14a24fad2a42309db110e, type: 3}
 --- !u!4 &4017764502736646426 stripped
 Transform:
@@ -422,7 +424,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 483951590, guid: b4a19f7cf9788994689c4faaa40e4faa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b4a19f7cf9788994689c4faaa40e4faa, type: 3}
 --- !u!4 &1417664323426684098 stripped
 Transform:

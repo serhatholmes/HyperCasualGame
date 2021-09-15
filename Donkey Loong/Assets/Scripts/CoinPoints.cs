@@ -55,7 +55,7 @@ public class CoinPoints : MonoBehaviour
     public void coinIncrease()
     {
         Debug.Log("coinarttı");
-        coin = PlayerPrefs.GetInt("Coins") + 125;
+        coin = PlayerPrefs.GetInt("Coins") + 375;
 
         PlayerPrefs.SetInt("Coins", coin);
         //coinParticle.Play();

@@ -16399,16 +16399,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1120538405980414027, guid: 8505e5260748a46b881cee04dd25cde8,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4402763284194236972, guid: 8505e5260748a46b881cee04dd25cde8,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f8986fb81c83243059319b679bcaafb3, type: 2}
     - target: {fileID: 8760450860908465748, guid: 8505e5260748a46b881cee04dd25cde8,
         type: 3}
       propertyPath: m_RootOrder
@@ -16469,18 +16459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skins
       objectReference: {fileID: 0}
-    - target: {fileID: 8760450862089261265, guid: 8505e5260748a46b881cee04dd25cde8,
-        type: 3}
-      propertyPath: "y\u0131k\u0131ld\u0131"
-      value: 
-      objectReference: {fileID: 1459835840}
     - target: {fileID: 8760450862311070418, guid: 8505e5260748a46b881cee04dd25cde8,
         type: 3}
       propertyPath: "y\u0131k\u0131ld\u0131"
       value: 
       objectReference: {fileID: 1459835840}
-    m_RemovedComponents:
-    - {fileID: 8760450862311070421, guid: 8505e5260748a46b881cee04dd25cde8, type: 3}
-    - {fileID: 8760450860963108340, guid: 8505e5260748a46b881cee04dd25cde8, type: 3}
-    - {fileID: 8760450861156590037, guid: 8505e5260748a46b881cee04dd25cde8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8505e5260748a46b881cee04dd25cde8, type: 3}

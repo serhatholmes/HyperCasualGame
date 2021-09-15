@@ -530,7 +530,6 @@ MonoBehaviour:
   - {fileID: 1969412924375306326, guid: 32072d0bffa783141b5813469a89b4a0, type: 3}
   - {fileID: -1283820568726516060, guid: 8c4f8dbfcbade5544b5b595053c0e4c9, type: 3}
   "y\u0131k\u0131ld\u0131": {fileID: 0}
-  okUI: 0
   forArrow2D: 0
   canvasObject: {fileID: 0}
   gm: {fileID: 0}
@@ -5183,9 +5182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42e77b3b83f8491dabbe84907c4c0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinDisplayText: {fileID: 0}
-  currentCoins: 0
-  decrs: 125
+  coin: 0
+  currencyUI: {fileID: 0}
+  increment: 125
+  destroy1: 0
 --- !u!1 &2528980038840105401
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,7 +5864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5251716620377452282
 Transform:
   m_ObjectHideFlags: 0
