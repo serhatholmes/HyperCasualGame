@@ -49,6 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedText1: {fileID: 0}
   characterList: []
+  buyButton: {fileID: 0}
+  chooseButton: {fileID: 0}
+  unlockedList: 
+  pointDec: {fileID: 0}
   decrease: 100
   coinText: {fileID: 0}
 --- !u!1001 &8760450860366104496

@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
 
     bool isVibrate = true;
 
+    lauchParticle zıplamaEfekti;
+
     Spawner spawner;
 
     CoinTurn cnTurn;
@@ -130,10 +132,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            skinObject.GetComponent<SkinnedMeshRenderer>().sharedMesh = skins[Random.Range(0, skins.Count)];
-        }
+      
+        
 
         positions[0] = transform.position;
         positions[1] = transform.position + transform.forward * 5;
@@ -142,9 +142,12 @@ public class Player : MonoBehaviour
         {
             sinValue += increment * Time.deltaTime;
             
-
+            
             //transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
             var rotatingArrow = GameObject.FindGameObjectWithTag("RotatingArrow").transform.localRotation;
+
+            
+
             transform.localRotation = Quaternion.Euler(new Vector3(this.transform.localRotation.x, rotatingArrow.z * -100f, this.transform.localRotation.z));
         }
 
@@ -430,7 +433,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
+        if(other.tag=="Finish")
+        {
+            zıplamaEfekti.playParticle();
+        }
     }
 
     IEnumerator Floor()

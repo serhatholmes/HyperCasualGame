@@ -7,20 +7,31 @@ using TMPro;
 
 public class CharacterChanging : MonoBehaviour
 {
-    
-    public TMPro.TextMeshProUGUI lockedText1;
+
+    [SerializeField] public TMP_Text lockedText1;
     [SerializeField] private GameObject[] characterList;
+    [SerializeField] private GameObject buyButton;
+    [SerializeField] private GameObject chooseButton;
+    public List<int> unlockedList;
     private int index=0; 
 
-    CoinPoints pointDec;
+    [SerializeField] CoinPoints pointDec;
     public int decrease = 100;
     GameObject coinn;
     string coin;
-    public Text coinText;
-
+    public TMP_Text coinText;
+    
+    static GameObject unlockedImage;
+    
     void Start()
     {
-        lockedText1 = gameObject.GetComponent<TextMeshProUGUI>();
+       /* if (PlayerPrefs skin1 açıksa)
+            unlockedList.Add(0);
+        if (ikinci açıksa)
+                elşe  */
+        unlockedImage = GameObject.FindGameObjectWithTag("unlocked");
+
+        //lockedText1 = gameObject.GetComponent<TextMeshProUGUI>();
         
         //Text text = coinText.GetComponent<Text>();
         //text.text = coin;
@@ -44,8 +55,25 @@ public class CharacterChanging : MonoBehaviour
 
             //we toggle on the selected character
             if (characterList[index])
-                characterList[index].SetActive(true); 
-        
+                characterList[index].SetActive(true);
+
+
+        if (unlockedList.Contains(index))
+        {
+            unlockedImage.SetActive(false);
+            buyButton.SetActive(false);
+            chooseButton.SetActive(true);
+
+        }
+        else
+        {
+            unlockedImage.SetActive(true);
+            buyButton.SetActive(true);
+            chooseButton.SetActive(false);
+        }
+
+
+
     }
     
     void Update()
@@ -65,7 +93,18 @@ public class CharacterChanging : MonoBehaviour
         // toggle on the new model
         characterList[index].SetActive(true);
 
-
+        if (unlockedList.Contains(index))
+        {
+            unlockedImage.SetActive(false);
+            buyButton.SetActive(false);
+            chooseButton.SetActive(true);
+        }
+        else
+        {
+            unlockedImage.SetActive(true);
+            buyButton.SetActive(true);
+            chooseButton.SetActive(false);
+        }
     }
 
     public void ToggleRight()
@@ -80,6 +119,19 @@ public class CharacterChanging : MonoBehaviour
         // toggle on the new model
         characterList[index].SetActive(true);
 
+        if (unlockedList.Contains(index))
+        {
+            unlockedImage.SetActive(false);
+            buyButton.SetActive(false);
+            chooseButton.SetActive(true);
+        }
+        else
+        {
+            unlockedImage.SetActive(true);
+            buyButton.SetActive(true);
+            chooseButton.SetActive(false);
+        }
+
 
     }
 
@@ -89,11 +141,38 @@ public class CharacterChanging : MonoBehaviour
         //pointDec.boughtSkin();
         Debug.Log("Selected");
         PlayerPrefs.SetInt("CharacterSelected", index);
+        //unlockedImage.SetActive(false);
 
 
     }
 
+    public void BuyButton()
+    {
+        if (pointDec.checkWallet())
+        {
+            pointDec.buySkinButton();
+            if (!unlockedList.Contains(index))
+            {
+                unlockedList.Add(index);
+                unlockedImage.SetActive(false);
+               // if (index 1 se) playerpref 1. skin = true
+                buyButton.SetActive(false);
+            }
+        }
+        
 
+        PrintUnlockedList();
+    }
+
+    void PrintUnlockedList()
+    {
+        Debug.Log("UNLOCKED LIST");
+        foreach(var unlocked in unlockedList)
+        {
+            Debug.Log(unlocked);
+        }
+        Debug.Log("-------------------------");
+    }
 
 
 

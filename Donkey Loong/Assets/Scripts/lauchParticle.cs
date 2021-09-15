@@ -20,5 +20,8 @@ public class lauchParticle : MonoBehaviour
         }
     }
 
-
+    public void playParticle()
+    {
+        launchParticle.Play();
+    }
 }

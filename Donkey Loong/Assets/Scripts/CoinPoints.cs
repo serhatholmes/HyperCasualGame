@@ -28,8 +28,8 @@ public class CoinPoints : MonoBehaviour
         }
 
         //currencyUI =
-
         
+
         //coinParticle = GetComponent<ParticleSystem>();
     }
 
@@ -42,6 +42,12 @@ public class CoinPoints : MonoBehaviour
         if (destroy1 == true)
         {
             Destroy(gameObject);
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            PlayerPrefs.SetInt("Coins", 5000);
+            coin = PlayerPrefs.GetInt("Coins");
         }
     }
 
@@ -60,12 +66,32 @@ public class CoinPoints : MonoBehaviour
 
     }  
 
-    
+    public void displayGoldScore()
+    {
+        currencyUI.text = PlayerPrefs.GetInt("Coins").ToString();
+    }
     
 
     public void buySkinButton()
     {
-        coin -= 1000;
+        coin = PlayerPrefs.GetInt("Coins");
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 1000);
+        displayGoldScore();
+
+        
+    }
+
+    public bool checkWallet()
+    {
+        coin = PlayerPrefs.GetInt("Coins");
+        if (coin >= 1000)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     IEnumerator coinDeath()

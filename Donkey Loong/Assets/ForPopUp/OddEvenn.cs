@@ -86,27 +86,27 @@ public class OddEvenn : MonoBehaviour
         //theNumber = theNumber % 2;
 
 
-
-        theNumb.text = "Skor: " + theNumb.ToString();
+        // thenumb.settext()
+        theNumb.text = "prediction: " + theNumber.ToString();
 
 
         Debug.Log("basladi");
 
         
        
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
     }
 
     IEnumerator forWin()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene("WinScene");
     }
 
     IEnumerator forLoose()
     {
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene("GameOver");
     }
 

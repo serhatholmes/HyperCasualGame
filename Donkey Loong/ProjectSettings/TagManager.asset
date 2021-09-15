@@ -37,6 +37,7 @@ TagManager:
   - RotatingArrow
   - Freeze
   - GoldScore
+  - unlocked
   layers:
   - Default
   - TransparentFX

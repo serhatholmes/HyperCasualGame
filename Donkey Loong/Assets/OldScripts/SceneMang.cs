@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using EasyUI.Toast;
 using UnityEngine.UI;
+using TMPro;
 
 public class SceneMang : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SceneMang : MonoBehaviour
     bool isMute = false;
     bool isMusicMute = false;
 
+    [SerializeField] TMP_Text goldText;
 
     CoinPoints winPoints;
 
@@ -132,9 +134,23 @@ public class SceneMang : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
+
+        showCoin();
+
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToPortraitUpsideDown = false;
+    }
+
+    public void showCoin()
+    {
+        goldText.text = PlayerPrefs.GetInt("Coins").ToString();
+    }
+
+    public void buyNewSkin()
+    {
+        //winPoints.buySkinButton();
     }
 
     // Update is called once per frame
