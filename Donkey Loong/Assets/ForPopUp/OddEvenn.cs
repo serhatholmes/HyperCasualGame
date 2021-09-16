@@ -100,6 +100,7 @@ public class OddEvenn : MonoBehaviour
     IEnumerator forWin()
     {
         yield return new WaitForSeconds(2.5f);
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1275);
         SceneManager.LoadScene("WinScene");
     }
 
@@ -122,10 +123,9 @@ public class OddEvenn : MonoBehaviour
 
         }
 
-        else
+        else if (theNumber % 2 == 0)
         {
             StartCoroutine(forLoose());
-
         }
         
     }
@@ -140,7 +140,7 @@ public class OddEvenn : MonoBehaviour
             StartCoroutine(forWin());
         }
 
-        else
+        else if(theNumber % 2 == 1)
         {
             StartCoroutine(forLoose());
 

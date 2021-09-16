@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject force1;
     [SerializeField] GameObject skinObject;
-    [SerializeField] List<Mesh> skins;
+    
 
     
 
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
 
         force1 = GameObject.FindGameObjectWithTag("Force");
 
-        force1.SetActive(false);
+        //force1.SetActive(false);
 
         esek = FindObjectOfType<EsekAnim>();
 
@@ -141,14 +141,15 @@ public class Player : MonoBehaviour
         if (donuyorum)
         {
             sinValue += increment * Time.deltaTime;
-            
-            
+
+
             //transform.localRotation = Quaternion.Euler(new Vector3(0, Mathf.Sin(sinValue) * 20, 0));
-            var rotatingArrow = GameObject.FindGameObjectWithTag("RotatingArrow").transform.localRotation;
+            Quaternion rotateArrowi = GameObject.FindGameObjectWithTag("RotatingArrow").transform.localRotation;
+            //var rotatingArrow = GameObject.FindGameObjectWithTag("RotatingArrow").transform.localRotation;
 
             
 
-            transform.localRotation = Quaternion.Euler(new Vector3(this.transform.localRotation.x, rotatingArrow.z * -100f, this.transform.localRotation.z));
+            transform.localRotation = Quaternion.Euler(new Vector3(this.transform.localRotation.x, rotateArrowi.z * -100f, this.transform.localRotation.z));
         }
 
         
@@ -435,7 +436,7 @@ public class Player : MonoBehaviour
     {
         if(other.tag=="Finish")
         {
-            zıplamaEfekti.playParticle();
+            //zıplamaEfekti.playParticle();
         }
     }
 

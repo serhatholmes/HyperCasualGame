@@ -52,7 +52,8 @@ public class SceneMang : MonoBehaviour
 
     public void Win()
     {
-        
+        Debug.LogWarning("PUAN VER");
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 275);
         SceneManager.LoadScene("WinScene");
     }
 
@@ -125,10 +126,14 @@ public class SceneMang : MonoBehaviour
     {
 
     }
-   
+
 
     // add rewarded and other adds
 
+    void Start()
+    {
+        
+    }
 
 
     // Start is called before the first frame update
