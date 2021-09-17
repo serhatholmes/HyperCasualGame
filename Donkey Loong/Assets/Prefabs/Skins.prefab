@@ -4642,19 +4642,10 @@ MonoBehaviour:
   rb: {fileID: 8578761373639216529}
   forFinish: 0
   canVibrate: 0
+  shaker: {fileID: 0}
+  sitParticle: {fileID: 0}
   force1: {fileID: 0}
   skinObject: {fileID: 4047734091721013797}
-  skins:
-  - {fileID: 1027842254846618039, guid: 990017e2b7fd22347a98aba71d0d9f8f, type: 3}
-  - {fileID: -2395300767548323527, guid: eae245dbac61a68468bce3fc27759ee4, type: 3}
-  - {fileID: 5527632301870101876, guid: b27198c26bb94004da7cf7a14f6033a1, type: 3}
-  - {fileID: -6733542825793785235, guid: 2ecc3c50e7d33344085eebd00d45eded, type: 3}
-  - {fileID: -6020269733958596883, guid: d8fee378ef61c0d4babd7ab0a5477b73, type: 3}
-  - {fileID: -5183152674033410693, guid: 80588dd774b4f6e47a216e77540b094a, type: 3}
-  - {fileID: 6283140665408670788, guid: e5ef2b41da7c8024eb476bfadaf885f4, type: 3}
-  - {fileID: 1767526339123794003, guid: 37cda992e3c0d47468aca910f04f84d6, type: 3}
-  - {fileID: 1969412924375306326, guid: 32072d0bffa783141b5813469a89b4a0, type: 3}
-  - {fileID: -1283820568726516060, guid: 8c4f8dbfcbade5544b5b595053c0e4c9, type: 3}
   "y\u0131k\u0131ld\u0131": {fileID: 0}
   forArrow2D: 0
   canvasObject: {fileID: 0}
@@ -4664,6 +4655,9 @@ MonoBehaviour:
   powerButton: {fileID: 0}
   bump: 0
   finish: 0
+  forODEVEN: {fileID: 0}
+  winSound: {fileID: 0}
+  forci: {fileID: 0}
   isGrounded: 0
 --- !u!114 &4859134345204081272
 MonoBehaviour:
@@ -4743,6 +4737,7 @@ MonoBehaviour:
   characterList: []
   buyButton: {fileID: 0}
   chooseButton: {fileID: 0}
+  skinPrice: {fileID: 0}
   unlockedList: 
   pointDec: {fileID: 0}
   decrease: 100

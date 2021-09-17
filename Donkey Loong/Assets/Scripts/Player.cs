@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
 
     bool isVibrate = true;
 
+    public ShakerCamera shaker;
+
+    public ParticleSystem sitParticle;
+
     lauchParticle zıplamaEfekti;
 
     Spawner spawner;
@@ -40,7 +44,7 @@ public class Player : MonoBehaviour
 
     //GameObject arrow;
 
-    GameObject quiver;
+    //GameObject quiver;
 
     GameObject powers;
 
@@ -50,7 +54,7 @@ public class Player : MonoBehaviour
 
     //GameObject camera1;
 
-    [SerializeField] GameObject force1;
+    //[SerializeField] GameObject force1;
     [SerializeField] GameObject skinObject;
     
 
@@ -58,7 +62,7 @@ public class Player : MonoBehaviour
 
     public Text yıkıldı;
 
-    
+    int countPlayer = 1;
 
     public bool forArrow2D = false;
 
@@ -80,6 +84,12 @@ public class Player : MonoBehaviour
 
     public int finish = 0;
 
+    public OddEvenn forODEVEN;
+
+    public AudioSource winSound;
+
+    public GameObject forci;
+
     void Awake()
     {
         powerButton = GameObject.FindGameObjectWithTag("PowerButton").GetComponent<Button>();
@@ -89,6 +99,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.tag = "Boy";
+
         DOTween.Init();
 
         GameObject.FindGameObjectWithTag("RotatingArrow").GetComponent<RotateArrow>().StartRotating();
@@ -115,17 +127,20 @@ public class Player : MonoBehaviour
 
         //arrow = GameObject.FindGameObjectWithTag("Arrow");
 
-        quiver = GameObject.FindGameObjectWithTag("Quiver");
+        //quiver = GameObject.FindGameObjectWithTag("Quiver");
 
         powers = GameObject.FindGameObjectWithTag("powerButon");
 
-        force1 = GameObject.FindGameObjectWithTag("Force");
+        
+        forci = GameObject.FindGameObjectWithTag("Force");
 
         //force1.SetActive(false);
 
         esek = FindObjectOfType<EsekAnim>();
 
         particlee = FindObjectOfType<ParticleSyst>();
+
+        forci.SetActive(false);
     }
 
 
@@ -157,9 +172,9 @@ public class Player : MonoBehaviour
 
     public void touchAndJump()
     {
-        quiver.SetActive(false);
+        //quiver.SetActive(false);
 
-        
+        forci.SetActive(false);
 
         GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5.4f, 0.4f, false);
 
@@ -184,6 +199,7 @@ public class Player : MonoBehaviour
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
             anim1.Play("JumpBoy");
             //anim1.SetBool("Jump", true);
+            forci.SetActive(false);
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
@@ -204,8 +220,8 @@ public class Player : MonoBehaviour
 
             jumpMe = false;
 
-            quiver.SetActive(true);
-            StartCoroutine(ButtonHider(1.5f));
+            //quiver.SetActive(true);
+            StartCoroutine(ButtonHider(1f));
 
             Debug.Log("animasyona girdi");
 
@@ -227,24 +243,26 @@ public class Player : MonoBehaviour
     {
         bool yürüdü = false;
 
-        if(other.tag =="Spawn")
+        
+
+        if (other.tag == "Spawn")
         {
             GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(11f, 0.4f, true);
 
             forArrow2D = false;
-            
+
             
 
-            quiver.SetActive(false);
+            //quiver.SetActive(false);
 
             powers.SetActive(false);
 
-            force1.SetActive(true);
+            //force1.SetActive(true);
 
-            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-4.5f,1.5f);
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-4.5f, 1.5f);
             transform.DOMoveX(0, 2.5f);
 
-            
+
 
             yürüdü = true;
             if (yürüdü == true)
@@ -255,19 +273,24 @@ public class Player : MonoBehaviour
                 Debug.Log("döndü");
                 //transform.DOLookAt(new Vector3(0, 0, 5.75f), 2f,AxisConstraint.None);
                 Debug.Log("Done");
-                
-                anim1.SetBool("Idle", true);              
+
+                anim1.SetBool("Idle", true);
 
             }
 
         }
-        
-        else if (other.tag == "Finish" )
+
+        else if(other.tag == "jefrey")
         {
-            
+            forci.SetActive(false);
+        }
+
+        else if (other.tag == "Finish")
+        {
 
 
-            quiver.SetActive(true);
+
+            //quiver.SetActive(true);
 
             powers.SetActive(true);
 
@@ -282,34 +305,34 @@ public class Player : MonoBehaviour
                 donuyorum = true;
                 Debug.Log("donuyorum degisti");
 
-                
+
             }
 
         }
 
-        else if(other.tag == null)
+        else if (other.tag == null)
         {
             Destroy(gameObject, 3f);
         }
 
-        else if(other.tag=="Died")
+        else if (other.tag == "Died")
         {
             Destroy(GameObject.FindWithTag("Boy"));
             Debug.Log("destroyedd");
-            
+
             Destroy(gameObject.GetComponent<CapsuleCollider>());
             spawner.SpawnJumper();
 
-            force1.SetActive(true);
+            forci.SetActive(true);
 
         }
 
-        else if(other.tag == "Donkey" )
+        else if (other.tag == "Donkey")
         {
-            
 
 
-            if (canVibrate==true)
+
+            if (canVibrate == true)
             {
                 Handheld.Vibrate();
             }
@@ -318,7 +341,7 @@ public class Player : MonoBehaviour
 
             }
 
-            force1.SetActive(true);
+            forci.SetActive(true);
 
             anim1.Play("Sitting");
 
@@ -326,17 +349,34 @@ public class Player : MonoBehaviour
 
             Handheld.Vibrate();
             rb.constraints = RigidbodyConstraints.FreezeAll;
-            
+
             jumpMe = false;
             Debug.Log("başarılı");
 
-            
+
             spawner.SpawnJumper();
 
-            
+/*
+            StartCoroutine(shaker.Shake(.15f, .4f));
+            if (!sitParticle.isPlaying)
+            {
+                sitParticle.Play();
+            }
+            countPlayer++;
+
+            if (countPlayer == 4)
+            {
+
+                forPopUpScreen();
+
+
+            }
+
+            Debug.Log("tutundu");  */
         }
 
-        else if(other.tag=="Coin")
+
+        else if (other.tag == "Coin")
         {
             Debug.Log("serhat");
             Debug.Log("ÇARPTIIII" + other.transform.name);
@@ -345,14 +385,14 @@ public class Player : MonoBehaviour
             {
                 Destroy(other.gameObject);
             }
-            
+
         }
 
-        else if(other.tag == "Floor")
+        else if (other.tag == "Floor")
         {
 
             particlee.particleee();
-            force1.SetActive(true);
+            forci.SetActive(true);
 
             spawner.SpawnJumper();
 
@@ -381,17 +421,17 @@ public class Player : MonoBehaviour
 
         }
 
-        else if(other.tag== "Freeze")
+        else if (other.tag == "Freeze")
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
-        else if(other.tag == "Boy")
+        else if (other.tag == "Boy")
         {
             rb.velocity = Vector3.up * (jumpForce) * 0.4f + Vector3.forward * (jumpForce) * 0.2f;
         }
 
-        else if(other.tag=="Down")
+        else if (other.tag == "Down")
 
         {
             rb.velocity = Vector3.down * (jumpForce) * 1f;
@@ -409,7 +449,17 @@ public class Player : MonoBehaviour
     }
     public bool isGrounded;
 
-    
+    public void forPopUpScreen()
+    {
+
+        forODEVEN.WinStiuation();
+
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, false).OnComplete(() =>
+        {
+            GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(14.7f, 12, 0), 0.2f, RotateMode.Fast);
+        });
+        winSound.Play(0);
+    }
 
     public void VibrationMute()
     {

@@ -38,6 +38,7 @@ TagManager:
   - Freeze
   - GoldScore
   - unlocked
+  - jefrey
   layers:
   - Default
   - TransparentFX

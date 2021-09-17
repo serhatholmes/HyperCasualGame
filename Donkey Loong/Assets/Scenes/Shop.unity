@@ -6489,6 +6489,11 @@ PrefabInstance:
       objectReference: {fileID: 674483634}
     - target: {fileID: 2844910294280602289, guid: 758aafe3f56a04abe876898e6e851006,
         type: 3}
+      propertyPath: skinPrice
+      value: 
+      objectReference: {fileID: 714128846}
+    - target: {fileID: 2844910294280602289, guid: 758aafe3f56a04abe876898e6e851006,
+        type: 3}
       propertyPath: lockedText1
       value: 
       objectReference: {fileID: 1821753339}

@@ -12,12 +12,16 @@ public class CharacterChanging : MonoBehaviour
     [SerializeField] private GameObject[] characterList;
     [SerializeField] private GameObject buyButton;
     [SerializeField] private GameObject chooseButton;
+    [SerializeField] private GameObject skinPrice;
     public List<int> unlockedList;
     private int index=0; 
 
     [SerializeField] CoinPoints pointDec;
     public int decrease = 100;
     GameObject coinn;
+
+    string unlockedListString;
+
     string coin;
     public TMP_Text coinText;
     
@@ -32,9 +36,26 @@ public class CharacterChanging : MonoBehaviour
         unlockedImage = GameObject.FindGameObjectWithTag("unlocked");
 
         //lockedText1 = gameObject.GetComponent<TextMeshProUGUI>();
-        
+
         //Text text = coinText.GetComponent<Text>();
         //text.text = coin;
+        if (PlayerPrefs.GetString("unlockedList") == null)
+        {
+            PlayerPrefs.SetString("unlockedList", "0");
+        }
+        unlockedListString = PlayerPrefs.GetString("unlockedList");
+        foreach (var letter in unlockedListString)
+        {
+            if (!unlockedList.Contains(letter - '0'))
+            {
+                unlockedList.Add(letter - '0');
+            }
+        }
+        foreach (var item in unlockedList)
+        {
+            Debug.Log(item);
+        }
+        
 
         index = PlayerPrefs.GetInt("CharacterSelected");
             
@@ -62,6 +83,8 @@ public class CharacterChanging : MonoBehaviour
         {
             unlockedImage.SetActive(false);
             buyButton.SetActive(false);
+            skinPrice.SetActive(false);
+
             chooseButton.SetActive(true);
 
         }
@@ -69,6 +92,8 @@ public class CharacterChanging : MonoBehaviour
         {
             unlockedImage.SetActive(true);
             buyButton.SetActive(true);
+            skinPrice.SetActive(true);
+
             chooseButton.SetActive(false);
         }
 
@@ -97,12 +122,14 @@ public class CharacterChanging : MonoBehaviour
         {
             unlockedImage.SetActive(false);
             buyButton.SetActive(false);
+            skinPrice.SetActive(false);
             chooseButton.SetActive(true);
         }
         else
         {
             unlockedImage.SetActive(true);
             buyButton.SetActive(true);
+            skinPrice.SetActive(true);
             chooseButton.SetActive(false);
         }
     }
@@ -123,12 +150,14 @@ public class CharacterChanging : MonoBehaviour
         {
             unlockedImage.SetActive(false);
             buyButton.SetActive(false);
+            skinPrice.SetActive(false);
             chooseButton.SetActive(true);
         }
         else
         {
             unlockedImage.SetActive(true);
             buyButton.SetActive(true);
+            skinPrice.SetActive(true);
             chooseButton.SetActive(false);
         }
 
@@ -142,7 +171,7 @@ public class CharacterChanging : MonoBehaviour
         Debug.Log("Selected");
         PlayerPrefs.SetInt("CharacterSelected", index);
         //unlockedImage.SetActive(false);
-
+        SceneManager.LoadScene("Game");
 
     }
 
@@ -154,9 +183,18 @@ public class CharacterChanging : MonoBehaviour
             if (!unlockedList.Contains(index))
             {
                 unlockedList.Add(index);
+                unlockedListString = "";
+                foreach (var item in unlockedList)
+                {
+                    unlockedListString += item.ToString();
+                }
+                PlayerPrefs.SetString("unlockedList", unlockedListString);
                 unlockedImage.SetActive(false);
                // if (index 1 se) playerpref 1. skin = true
                 buyButton.SetActive(false);
+                chooseButton.SetActive(true);
+                skinPrice.SetActive(false);
+
             }
         }
         
