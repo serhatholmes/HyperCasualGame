@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
 
         particlee = FindObjectOfType<ParticleSyst>();
 
-        forci.SetActive(false);
+        forci.SetActive(true);
     }
 
 
@@ -174,9 +174,9 @@ public class Player : MonoBehaviour
     {
         //quiver.SetActive(false);
 
-        forci.SetActive(false);
+        forci.SetActive(true);
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5.4f, 0.4f, false);
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(5.4f, 0.3f, false);
 
         if (donuyorum)
         {
@@ -186,20 +186,20 @@ public class Player : MonoBehaviour
             return;
         }
 
-        
+        forci.SetActive(true);
 
         jumpMe = true;
 
         if (jumpMe == true || forFinish == true)
         {
-
+            
             //lr.positionCount = 0;
             jumpForce = gm.force;
 
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
             anim1.Play("JumpBoy");
             //anim1.SetBool("Jump", true);
-            forci.SetActive(false);
+            
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
 
@@ -285,6 +285,11 @@ public class Player : MonoBehaviour
             forci.SetActive(false);
         }
 
+        else if(other.tag == "true")
+        {
+            forci.SetActive(true);
+        }
+
         else if (other.tag == "Finish")
         {
 
@@ -323,14 +328,14 @@ public class Player : MonoBehaviour
             Destroy(gameObject.GetComponent<CapsuleCollider>());
             spawner.SpawnJumper();
 
-            forci.SetActive(true);
+            
 
         }
 
         else if (other.tag == "Donkey")
         {
 
-
+            forci.SetActive(false);
 
             if (canVibrate == true)
             {
@@ -341,7 +346,7 @@ public class Player : MonoBehaviour
 
             }
 
-            forci.SetActive(true);
+            
 
             anim1.Play("Sitting");
 
@@ -390,9 +395,10 @@ public class Player : MonoBehaviour
 
         else if (other.tag == "Floor")
         {
+            forci.SetActive(false);
 
             particlee.particleee();
-            forci.SetActive(true);
+            
 
             spawner.SpawnJumper();
 

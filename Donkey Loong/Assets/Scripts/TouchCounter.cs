@@ -78,7 +78,7 @@ public class TouchCounter : MonoBehaviour
 
             if (countPlayer == 4)
             {
-                //PlayerPrefs.SetInt("CoinPoints", PlayerPrefs.GetInt("CoinPoints") + 200);
+                
                 forPopUpScreen();
 
 

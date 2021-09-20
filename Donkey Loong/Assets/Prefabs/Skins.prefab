@@ -4644,7 +4644,6 @@ MonoBehaviour:
   canVibrate: 0
   shaker: {fileID: 0}
   sitParticle: {fileID: 0}
-  force1: {fileID: 0}
   skinObject: {fileID: 4047734091721013797}
   "y\u0131k\u0131ld\u0131": {fileID: 0}
   forArrow2D: 0

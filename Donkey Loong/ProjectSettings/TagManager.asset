@@ -39,6 +39,7 @@ TagManager:
   - GoldScore
   - unlocked
   - jefrey
+  - true
   layers:
   - Default
   - TransparentFX
