@@ -16,7 +16,7 @@ public class CoinPoints : MonoBehaviour
 
     void Awake()
     {
-        currencyUI = GameObject.FindGameObjectWithTag("GoldScore").GetComponent<TMP_Text>();
+         currencyUI = GameObject.FindGameObjectWithTag("GoldScore").GetComponent<TMP_Text>();
     }
 
     void Start()
@@ -75,7 +75,7 @@ public class CoinPoints : MonoBehaviour
     public void buySkinButton()
     {
         coin = PlayerPrefs.GetInt("Coins");
-        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 1000);
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 10000);
         displayGoldScore();
 
         

@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateArrow : MonoBehaviour
 {
     private float sinValue = 0f;
-    private float increment = 2f;
+    private float increment = 6f;
     [SerializeField] bool donuyorum = true;
 
    
@@ -24,7 +24,7 @@ public class RotateArrow : MonoBehaviour
             {
                 sinValue += increment * Time.deltaTime;
 
-                transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Sin(sinValue) * 24));
+                transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Sin(sinValue) * 36));
             }
        // }
     }

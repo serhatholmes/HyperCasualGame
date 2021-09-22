@@ -55,14 +55,21 @@ public class TouchCounter : MonoBehaviour
 
     public void forPopUpScreen()
     {
-       
-            forODEVEN.WinStiuation();
 
-        GameObject.FindGameObjectWithTag("Camera").transform.DOMove(new Vector3(0, 4, 2), 0.3f, false).OnComplete(() =>
+        forODEVEN.WinStiuation();
+
+        GameObject.FindGameObjectWithTag("Camera").transform.DOMoveZ(-5f,0.4f,true).OnComplete(()=>
         {
-            GameObject.FindGameObjectWithTag("Camera").transform.DORotate(new Vector3(14.7f,12,0), 0.2f, RotateMode.Fast);
+            GameObject.FindGameObjectWithTag("Camera").transform.DOMoveY(0f, 0.2f, true).OnComplete(() =>
+            {
+                GameObject.FindGameObjectWithTag("Camera").transform.DOMoveX(-5.6f, 0.1f, true);
+            }
+            );
         });
+        
             winSound.Play(0);
+
+        
     }
 
     private void OnTriggerEnter(Collider other)

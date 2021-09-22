@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000 GOLD
+  m_text: 10000 GOLD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 8d34560b6d49c4469b2174ccd34ae34b,
@@ -6407,16 +6407,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2844910293007767094, guid: 758aafe3f56a04abe876898e6e851006,
-        type: 3}
-      propertyPath: force1
-      value: 
-      objectReference: {fileID: 452267452}
-    - target: {fileID: 2844910293992385844, guid: 758aafe3f56a04abe876898e6e851006,
-        type: 3}
-      propertyPath: force1
-      value: 
-      objectReference: {fileID: 452267452}
     - target: {fileID: 2844910294280602288, guid: 758aafe3f56a04abe876898e6e851006,
         type: 3}
       propertyPath: m_RootOrder
@@ -6507,16 +6497,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skins
       objectReference: {fileID: 0}
-    - target: {fileID: 2844910294327417110, guid: 758aafe3f56a04abe876898e6e851006,
-        type: 3}
-      propertyPath: force1
-      value: 
-      objectReference: {fileID: 452267452}
-    - target: {fileID: 8508632709550830555, guid: 758aafe3f56a04abe876898e6e851006,
-        type: 3}
-      propertyPath: force1
-      value: 
-      objectReference: {fileID: 452267452}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 758aafe3f56a04abe876898e6e851006, type: 3}
 --- !u!114 &8760450861274187601 stripped

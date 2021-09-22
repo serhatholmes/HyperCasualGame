@@ -51,6 +51,7 @@ MonoBehaviour:
   characterList: []
   buyButton: {fileID: 0}
   chooseButton: {fileID: 0}
+  skinPrice: {fileID: 0}
   unlockedList: 
   pointDec: {fileID: 0}
   decrease: 100

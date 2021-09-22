@@ -56,8 +56,8 @@ public class Player : MonoBehaviour
 
     //[SerializeField] GameObject force1;
     [SerializeField] GameObject skinObject;
-    
 
+    public bool sliderUse = false;
     
 
     public Text yıkıldı;
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
     [SerializeField] public bool jumpMe = false;
 
     private float sinValue = 0f;
-    private float increment = 2f;
+    private float increment = 6f;
     private bool rotationStopped = false;
     [SerializeField] bool donuyorum = false;
 
@@ -100,6 +100,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         gameObject.tag = "Boy";
+
+        forci = GameObject.FindGameObjectWithTag("Force");
 
         DOTween.Init();
 
@@ -131,16 +133,16 @@ public class Player : MonoBehaviour
 
         powers = GameObject.FindGameObjectWithTag("powerButon");
 
-        
-        forci = GameObject.FindGameObjectWithTag("Force");
 
-        //force1.SetActive(false);
+
+
+        forci.SetActive(false);
 
         esek = FindObjectOfType<EsekAnim>();
 
         particlee = FindObjectOfType<ParticleSyst>();
 
-        forci.SetActive(true);
+        
     }
 
 
@@ -168,6 +170,8 @@ public class Player : MonoBehaviour
         }
 
         
+
+        
     }
 
     public void touchAndJump()
@@ -182,11 +186,11 @@ public class Player : MonoBehaviour
         {
             donuyorum = false;
             GameObject.FindGameObjectWithTag("RotatingArrow").GetComponent<RotateArrow>().StopRotating();
-            StartCoroutine(ButtonHider(1));
+            StartCoroutine(ButtonHider(0.7f));
             return;
         }
 
-        forci.SetActive(true);
+        
 
         jumpMe = true;
 
@@ -199,6 +203,7 @@ public class Player : MonoBehaviour
             rb.velocity = Vector3.up * (jumpForce) * 2f + transform.forward * ((jumpForce) * 2f);
             anim1.Play("JumpBoy");
             //anim1.SetBool("Jump", true);
+
             
 
             Destroy(GameObject.FindGameObjectWithTag("Arrow"));
@@ -221,7 +226,7 @@ public class Player : MonoBehaviour
             jumpMe = false;
 
             //quiver.SetActive(true);
-            StartCoroutine(ButtonHider(1f));
+            StartCoroutine(ButtonHider(0.7f));
 
             Debug.Log("animasyona girdi");
 
@@ -285,10 +290,7 @@ public class Player : MonoBehaviour
             forci.SetActive(false);
         }
 
-        else if(other.tag == "true")
-        {
-            forci.SetActive(true);
-        }
+        
 
         else if (other.tag == "Finish")
         {
@@ -335,7 +337,7 @@ public class Player : MonoBehaviour
         else if (other.tag == "Donkey")
         {
 
-            forci.SetActive(false);
+            //sliderUse = false;
 
             if (canVibrate == true)
             {
@@ -395,9 +397,9 @@ public class Player : MonoBehaviour
 
         else if (other.tag == "Floor")
         {
-            forci.SetActive(false);
+            //sliderUse = false;
 
-            particlee.particleee();
+            //particlee.particleee();
             
 
             spawner.SpawnJumper();
@@ -466,6 +468,8 @@ public class Player : MonoBehaviour
         });
         winSound.Play(0);
     }
+
+   
 
     public void VibrationMute()
     {

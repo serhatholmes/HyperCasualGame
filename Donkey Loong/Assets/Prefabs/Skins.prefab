@@ -4645,6 +4645,7 @@ MonoBehaviour:
   shaker: {fileID: 0}
   sitParticle: {fileID: 0}
   skinObject: {fileID: 4047734091721013797}
+  sliderUse: 0
   "y\u0131k\u0131ld\u0131": {fileID: 0}
   forArrow2D: 0
   canvasObject: {fileID: 0}

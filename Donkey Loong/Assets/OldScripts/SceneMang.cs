@@ -13,6 +13,8 @@ public class SceneMang : MonoBehaviour
     bool isMute = false;
     bool isMusicMute = false;
 
+    CoinPoints coinAd;
+
     [SerializeField] TMP_Text goldText;
 
     CoinPoints winPoints;
@@ -120,6 +122,7 @@ public class SceneMang : MonoBehaviour
     public void playRewardedAds()
     {
 
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 500);
     }
 
     public void removeADS()
