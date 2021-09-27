@@ -19,6 +19,8 @@ public class SceneMang : MonoBehaviour
 
     CoinPoints winPoints;
 
+    AdManager reklamManager;
+
     //public GameObject panelPause;
 
     public void ExitButton()
@@ -46,6 +48,7 @@ public class SceneMang : MonoBehaviour
 
     public void GameOver()
     {
+        
         AudioManager.instance.Play("Nooo");
         SceneManager.LoadScene("GameOver");
     }
@@ -54,6 +57,7 @@ public class SceneMang : MonoBehaviour
 
     public void Win()
     {
+        
         Debug.LogWarning("PUAN VER");
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 275);
         SceneManager.LoadScene("WinScene");
@@ -66,6 +70,7 @@ public class SceneMang : MonoBehaviour
 
     public void LooseScene()
     {
+        
         SceneManager.LoadScene("GameOver");
     }
 
@@ -119,10 +124,10 @@ public class SceneMang : MonoBehaviour
         }
     }
 
-    public void playRewardedAds()
+    IEnumerator playInterstitialAds()
     {
-
-        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 500);
+        
+        yield return new WaitForSeconds(5);
     }
 
     public void removeADS()
@@ -135,7 +140,7 @@ public class SceneMang : MonoBehaviour
 
     void Start()
     {
-        
+        AdManager.instance.GecisAD();
     }
 
 

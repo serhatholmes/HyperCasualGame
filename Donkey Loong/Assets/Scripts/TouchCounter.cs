@@ -32,6 +32,8 @@ public class TouchCounter : MonoBehaviour
 
     public AudioSource winSound;
 
+    AdManager reklamManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,7 @@ public class TouchCounter : MonoBehaviour
        
         if(deathCount>6)
         {
+            reklamManager.GecisAD();
             SceneManager.LoadScene("GameOver");
         }
 
@@ -123,7 +126,9 @@ public class TouchCounter : MonoBehaviour
 
     IEnumerator forDeath()
     {
+
         yield return new WaitForSeconds(2);
+        reklamManager.rewardAD();
         SceneManager.LoadScene("GameOver");
     }
 

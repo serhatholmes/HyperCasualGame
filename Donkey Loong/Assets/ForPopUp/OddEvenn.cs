@@ -26,11 +26,16 @@ public class OddEvenn : MonoBehaviour
 
     public bool temp = true;
 
+    AdManager reklamManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        AdManager.instance.GecisAD();
         var theNumb = GetComponent<TMP_Text>();
         //theNumb.SetActive(false);
+
+        reklamManager = GetComponent<AdManager>();
 
         DOTween.Init();
         Time.timeScale = 0f;
@@ -99,15 +104,18 @@ public class OddEvenn : MonoBehaviour
 
     IEnumerator forWin()
     {
-        yield return new WaitForSeconds(2.5f);
+        reklamManager.GecisAD();
+        yield return new WaitForSeconds(2f);
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1275);
+        
         SceneManager.LoadScene("WinScene");
     }
 
     IEnumerator forLoose()
     {
-
-        yield return new WaitForSeconds(2.5f);
+        
+        yield return new WaitForSeconds(2f);
+        
         SceneManager.LoadScene("GameOver");
     }
 
