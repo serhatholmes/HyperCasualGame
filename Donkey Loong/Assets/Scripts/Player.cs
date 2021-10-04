@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
 
         powers = GameObject.FindGameObjectWithTag("powerButon");
 
-
+        AdManager.instance.RequestInterstital();
 
 
         forci.SetActive(false);
@@ -392,6 +392,11 @@ public class Player : MonoBehaviour
             {
                 Destroy(other.gameObject);
             }
+            if(Random.Range(0,1)==0)
+            {
+                AdManager.instance.ShowInterstital();
+            }
+            
 
         }
 

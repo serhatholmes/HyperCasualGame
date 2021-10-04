@@ -66,6 +66,7 @@ public class SceneMang : MonoBehaviour
 
     public void LooseScene()
     {
+        AdManager.instance.ShowInterstital();
         SceneManager.LoadScene("GameOver");
     }
 
@@ -135,7 +136,7 @@ public class SceneMang : MonoBehaviour
 
     void Start()
     {
-        
+        AdManager.instance.RequestInterstital();
     }
 
 

@@ -494,6 +494,75 @@ MonoBehaviour:
   - Language: "T\xFCrk\xE7e"
     Text: Oyna
     Object: {fileID: 0}
+--- !u!1001 &556215041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5897383200412122028, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_Name
+      value: AdManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 452.33737
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1035.2412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -95.69105
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897383200412122030, guid: 034b53653313b48d5b77e21643ea279a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 034b53653313b48d5b77e21643ea279a, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Abspielen
+  m_text: Oyna
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 8d34560b6d49c4469b2174ccd34ae34b,
@@ -6495,7 +6564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Deutsch
+  currentLanguage: "T\xFCrk\xE7e"
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
@@ -6580,7 +6649,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Einkaufen
+  m_text: "D\xFCkkan"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 8d34560b6d49c4469b2174ccd34ae34b,
