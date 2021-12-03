@@ -157,7 +157,7 @@ PlayerSettings:
     Android: com.DefaultCompany.DonkeyLoong
   buildNumber:
     Standalone: 0
-    iPhone: 24
+    iPhone: 25
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
