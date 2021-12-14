@@ -1622,7 +1622,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 909899287}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: rewardAD
         m_Mode: 1
@@ -1752,16 +1752,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 909899286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52053d4c1a45845269b241d18d10f594, type: 3}
+  m_Script: {fileID: 11500000, guid: 3edc3cdd0c14f46b69ba754ccfbe7ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bannerText: {fileID: 0}
-  fullScreenText: {fileID: 0}
-  appID: ca-app-pub-7351680009694563~6700775843
-  interstitialID: ca-app-pub-7351680009694563/4398046136
-  bannerID: ca-app-pub-7351680009694563/2926032423
-  rewardID: ca-app-pub-3940256099942544/5224354917
-  position: 0
+  rewardedIndex: 0
+  rewardedReadyPublic: 0
 --- !u!4 &909899288
 Transform:
   m_ObjectHideFlags: 0
