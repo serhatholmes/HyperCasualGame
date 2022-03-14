@@ -31,7 +31,7 @@ public class OddEvenn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AdManager.instance.GecisAD();
+        //AdManager.instance.GecisAD();
         var theNumb = GetComponent<TMP_Text>();
         //theNumb.SetActive(false);
 
@@ -44,15 +44,15 @@ public class OddEvenn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(temp== false)
+        if (temp == false)
         {
             WinStiuation();
         }
     }
 
-    public void RandomGenerate ()
+    public void RandomGenerate()
     {
-        
+
 
         //randomNumb = theNumber.ToString();
 
@@ -65,12 +65,12 @@ public class OddEvenn : MonoBehaviour
     {
         Panel.SetActive(true);
         panelGamePlay.SetActive(false);
-        
+
     }
 
 
 
-   public void WinStiuation()
+    public void WinStiuation()
     {
 
 
@@ -85,7 +85,7 @@ public class OddEvenn : MonoBehaviour
     IEnumerator Waitttt()
     {
 
-        
+
         theNumber = Random.Range(1, 10);
 
         //theNumber = theNumber % 2;
@@ -97,8 +97,8 @@ public class OddEvenn : MonoBehaviour
 
         Debug.Log("basladi");
 
-        
-       
+
+
         yield return new WaitForSeconds(4);
     }
 
@@ -107,15 +107,15 @@ public class OddEvenn : MonoBehaviour
         reklamManager.GecisAD();
         yield return new WaitForSeconds(2f);
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1275);
-        
+
         SceneManager.LoadScene("WinScene");
     }
 
     IEnumerator forLoose()
     {
-        
+
         yield return new WaitForSeconds(2f);
-        
+
         SceneManager.LoadScene("GameOver");
     }
 
@@ -135,7 +135,7 @@ public class OddEvenn : MonoBehaviour
         {
             StartCoroutine(forLoose());
         }
-        
+
     }
 
     public void EvenButton()
@@ -144,16 +144,16 @@ public class OddEvenn : MonoBehaviour
 
         if (theNumber % 2 == 0)
         {
-            
+
             StartCoroutine(forWin());
         }
 
-        else if(theNumber % 2 == 1)
+        else if (theNumber % 2 == 1)
         {
             StartCoroutine(forLoose());
 
         }
     }
 
-   
+
 }

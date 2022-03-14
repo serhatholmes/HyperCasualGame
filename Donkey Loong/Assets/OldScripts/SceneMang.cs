@@ -30,10 +30,10 @@ public class SceneMang : MonoBehaviour
 
     public void StartGame()
     {
-        
+
         SceneManager.LoadScene("Game");
         Time.timeScale = 1f;
-        
+
     }
 
     public void Shop()
@@ -48,16 +48,16 @@ public class SceneMang : MonoBehaviour
 
     public void GameOver()
     {
-        
+
         AudioManager.instance.Play("Nooo");
         SceneManager.LoadScene("GameOver");
     }
 
-    
+
 
     public void Win()
     {
-        
+
         Debug.LogWarning("PUAN VER");
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 275);
         SceneManager.LoadScene("WinScene");
@@ -70,7 +70,7 @@ public class SceneMang : MonoBehaviour
 
     public void LooseScene()
     {
-        
+
         SceneManager.LoadScene("GameOver");
     }
 
@@ -110,7 +110,7 @@ public class SceneMang : MonoBehaviour
 
     public void MusicMute()
     {
-        if(isMute==false)
+        if (isMute == false)
         {
             Debug.Log("Music is OFF");
             AudioListener.volume = 0;
@@ -126,7 +126,7 @@ public class SceneMang : MonoBehaviour
 
     IEnumerator playInterstitialAds()
     {
-        
+
         yield return new WaitForSeconds(5);
     }
 
@@ -140,14 +140,14 @@ public class SceneMang : MonoBehaviour
 
     void Start()
     {
-        AdManager.instance.GecisAD();
+        //AdManager.instance.GecisAD();
     }
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        
+
 
         showCoin();
 
@@ -169,6 +169,6 @@ public class SceneMang : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

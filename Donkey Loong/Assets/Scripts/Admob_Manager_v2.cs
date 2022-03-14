@@ -15,6 +15,9 @@ public class Admob_Manager_v2 : MonoBehaviour
     private bool rewardedWatched = false;
     public bool rewardedReadyPublic = false;
 
+
+    public GameObject panelAD;
+
     private void Awake()
     {
         instance = this;
@@ -36,12 +39,29 @@ public class Admob_Manager_v2 : MonoBehaviour
             System.Diagnostics.Debug.WriteLine("Admob initialize fail  " + ex.Message);
             //throw;
         }
-        RequestInterstitial();
-        RequestRewarded();
+        //RequestInterstitial();
+        //RequestRewarded();
     }
 
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            Debug.Log("Request Rewarded");
+            RequestRewarded();
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("Request Inter");
+            RequestInterstitial();
+        }
+    }
 
+    public void closeADPanel()
+    {
+        panelAD.SetActive(false);
+    }
 
     #region Interstial 
     public void RequestInterstitial()
@@ -59,11 +79,11 @@ public class Admob_Manager_v2 : MonoBehaviour
 
 
 #if UNITY_ANDROID
-            string adUnitId = "ca-app-pub-7351680009694563/4398046136";
+            string adUnitId = "ca-app-pub-3940256099942544/1033173712";
 #elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-1851788608988306/3211657204";
+        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
 #else
-        string adUnitId = "unexpected_platform";
+            string adUnitId = "unexpected_platform";
 #endif
 
             // Initialize an InterstitialAd.
@@ -158,9 +178,9 @@ public class Admob_Manager_v2 : MonoBehaviour
 #if UNITY_ANDROID
             string adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IPHONE
-       string     adUnitId = "ca-app-pub-1851788608988306/1488330234";
+       string     adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #else
-       string     adUnitId = "unexpected_platform";
+            string adUnitId = "unexpected_platform";
 #endif
 
 
