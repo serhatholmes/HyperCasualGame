@@ -18,6 +18,8 @@ public class Admob_Manager_v2 : MonoBehaviour
 
     public GameObject panelAD;
 
+    public CoinPoints coinAdd;
+
     private void Awake()
     {
         instance = this;
@@ -41,6 +43,8 @@ public class Admob_Manager_v2 : MonoBehaviour
         }
         //RequestInterstitial();
         //RequestRewarded();
+
+        coinAdd = FindObjectOfType<CoinPoints>();
     }
 
 
@@ -169,6 +173,9 @@ public class Admob_Manager_v2 : MonoBehaviour
             System.Diagnostics.Debug.WriteLine("Rewarded Showing");
             this.rewardedAd.Show();
             rewardedReady = false;
+
+            coinAdd.coinIncreaceWAds();
+            PlayerPrefs.Save();
 
             RequestRewarded();
         }

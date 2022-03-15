@@ -30,7 +30,7 @@ public class SceneMang : MonoBehaviour
 
     public void StartGame()
     {
-
+        
         SceneManager.LoadScene("Game");
         Time.timeScale = 1f;
 

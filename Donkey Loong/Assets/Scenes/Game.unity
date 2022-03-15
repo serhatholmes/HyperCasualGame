@@ -602,7 +602,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1014309680}
         m_TargetAssemblyTypeName: Admob_Manager_v2, Assembly-CSharp
-        m_MethodName: RequestRewarded
+        m_MethodName: InvokeRewarded
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -37,7 +37,7 @@ public class CoinPoints : MonoBehaviour
     void Update()
     {
         
-        PlayerPrefs.Save();
+        
 
         if (destroy1 == true)
         {
@@ -55,7 +55,7 @@ public class CoinPoints : MonoBehaviour
     public void coinIncrease()
     {
         Debug.Log("coinarttı");
-        coin = PlayerPrefs.GetInt("Coins") + 375;
+        coin = PlayerPrefs.GetInt("Coins") + 175;
 
         PlayerPrefs.SetInt("Coins", coin);
         //coinParticle.Play();
@@ -64,7 +64,16 @@ public class CoinPoints : MonoBehaviour
 
        // Destroy(this.gameObject);
 
-    }  
+    }
+
+    public void coinIncreaceWAds()
+    {
+        coin = PlayerPrefs.GetInt("Coins") + 500;
+
+        PlayerPrefs.SetInt("Coins", coin);
+
+        currencyUI.text = " " + coin.ToString(); 
+    }
 
     public void displayGoldScore()
     {
